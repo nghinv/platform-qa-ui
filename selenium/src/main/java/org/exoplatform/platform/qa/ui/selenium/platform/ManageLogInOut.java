@@ -128,7 +128,7 @@ public class ManageLogInOut {
         evt.mouseOverAndClick(ELEMENT_ACCOUNT_NAME_LINK);
         break;
       }
-      evt.click(ELEMENT_ACCOUNT_NAME_LINK);
+      $(ELEMENT_ACCOUNT_NAME_LINK).click();
       if (evt.waitForAndGetElement(ManageLogInOutLocator.ELEMENT_SIGN_OUT_LINK, 5000, 0) != null) {
         info("Element " + ManageLogInOutLocator.ELEMENT_SIGN_OUT_LINK + "... is displayed");
         break;
