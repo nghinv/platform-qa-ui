@@ -179,7 +179,7 @@ public class NavigationToolbar {
         evt.click(ELEMENT_MY_CONNECTION_LINK);
         break;
       case MY_WIKI:
-        evt.click(ELEMENT_MY_WIKI_LINK);
+        $(ELEMENT_MY_WIKI_LINK).click();
         break;
       case MY_DASHBOARD:
         evt.click(ELEMENT_MY_DASHBOARD_LINK);
