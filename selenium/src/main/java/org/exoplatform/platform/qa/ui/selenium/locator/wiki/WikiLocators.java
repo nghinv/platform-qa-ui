@@ -138,9 +138,9 @@ public class WikiLocators {
   public static final By     ELEMENT_CANCEL_WIKI_DELETE                                 =
                                                         By.xpath(".//*[@id='UIWikiDeletePageConfirm']//button[text()='Cancel']");
 
-  public static final By     ELEMENT_MOVE_PAGE                                          = By.xpath(".//*[text()='Move Page']");
+  public static final By     ELEMENT_MOVE_PAGE                                          = By.xpath(".//*[text()='Move']");
 
-  public static final By     ELEMENT_PAGE_INFO                                          = By.xpath(".//*[text()='Page Info']");
+  public static final By     ELEMENT_PAGE_INFO                                          = By.xpath(".//*[text()='Info']");
 
   public static final By     ELEMENT_MOVE_LINK                                          =
                                                By.xpath("//*[@class='uiIconMovePage']");
