@@ -292,6 +292,9 @@ public class WikiLocators {
 
   public static final String ELEMENT_MOVE_PAGE_POPUP_DROP_DOWN_LOCATOR                  =
                                                                        ".//*[@id='UIWikiPopupWindowL1']//*[contains(text(),'Move Page')]/../..//*[contains(text(),'${locator}')]";
+  public static final  SelenideElement ELEMENT_POPUP_SELECT_DESTINATION = $(byClassName(("uiWikiMovePageForm")));
+
+  public static final  SelenideElement ELEMENT_SELECT_DESTINATION = $(byId("uiSpaceSwitcher_UIWikiMovePageForm"));
 
   public static final String ELEMENT_MOVE_PAGE_TREE_SELECTED_PAGE                       =
                                                                   ".//*[@id='UIWikiMovePageForm']//*[@id='iconTreeExplorer']//*[contains(text(),'$page')]";
