@@ -563,4 +563,7 @@ public final class HomePageLocator {
   public static final String ELEMENT_CONTAINER_ACTIVITY="activityContainer{id}";
   public static final String ELEMENT_DATE_ACTIVITY="dateTime";
   public static final String ELEMENT_DELETE_ACTIVITY="DeleteActivityButton{id}";
+  public static final SelenideElement ELEMENT_ICON_SEARCH=$(byClassName("TRContainer")).find(byClassName("uiIconPLF24x24Search"));
+  public static final SelenideElement ELEMENT_SEARCH_INPUT=$(byClassName("showInputSearch"));
+  public static final SelenideElement ELEMENT_SEARCH_RESULT=$(byId("quickSearchResult1"));
 }
