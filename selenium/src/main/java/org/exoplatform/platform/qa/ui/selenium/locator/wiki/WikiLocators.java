@@ -3,9 +3,7 @@ package org.exoplatform.platform.qa.ui.selenium.locator.wiki;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Selectors.byClassName;
-import static com.codeborne.selenide.Selectors.byId;
-import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 
 public class WikiLocators {
@@ -478,8 +476,8 @@ public class WikiLocators {
   public static final By     ELEMENT_PREVIEW_SCREEN                                     =
                                                     By.xpath("//div[@class='popupTitle' and text()='Preview']");
 
-  public static final By     ELEMENT_WIKI_PAGE_TOOL_BAR_AUTO_SAVE_TEXT                  =
-                                                                       By.xpath(".//*[@id='UIWikiPageEditForm']//*[contains(text(),'Draft saved')]");
+  public static final SelenideElement     ELEMENT_WIKI_PAGE_TOOL_BAR_AUTO_SAVE_TEXT                  =
+                                                                       $(byXpath("//*[@id=\"UIWikiPageEditForm\"]/div[2]/div[2]/div[2]/div[2]"));
 
   //public static final By     ELEMENT_SAVE_BUTTON_ADD_PAGE                               = By.id("UISubmitToolBarUpper_SavePage_");
 
@@ -520,7 +518,21 @@ public class WikiLocators {
 
   public static final By     ELEMENT_TEMPLATE_CANCEL_BTN                                =
                                                          By.xpath(".//*[@id='UIWikiSelectTemplateForm']//*[text()='Cancel']");
-
+  //select HOW-TO Guide template
+  public static final SelenideElement ELEMENT_SELECT_TEMPLATE_HowToGuide                =
+                                                         $(byXpath("//*[@id=\"UIWikiTemplateGrid\"]/tbody/tr[2]/td[1]/div/input"));
+  //select Three-Column Layout template
+  public static final SelenideElement ELEMENT_SELECT_TEMPLATE_ThreeColumnLayout         =
+                                                         $(byXpath("//*[@id=\"UIWikiTemplateGrid\"]/tbody/tr[3]/td[1]/div/input"));
+  //select Status Meeting template
+  public static final SelenideElement ELEMENT_SELECT_TEMPLATE_StatusMeeting         =
+                                                         $(byXpath("//*[@id=\"UIWikiTemplateGrid\"]/tbody/tr[4]/td[1]/div/input"));
+  //select Leave Planning template
+  public static final SelenideElement ELEMENT_SELECT_TEMPLATE_LeavePlanning         =
+                                                          $(byXpath("//*[@id=\"UIWikiTemplateGrid\"]/tbody/tr[5]/td[1]/div/input"));
+  //select Two-Column Layout template
+  public static final SelenideElement ELEMENT_SELECT_TEMPLATE_TwoColumnLayout         =
+                                                          $(byXpath("//*[@id=\"UIWikiTemplateGrid\"]/tbody/tr[6]/td[1]/div/input"));
   // Preview page
   public static final String ELEMENT_PREVIEW_TEMPLATE_CONTENT                           =
                                                               "//*[@class='uiWikiPageTitlePreview' and contains(text(), '${template}')]";
