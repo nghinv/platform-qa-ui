@@ -3,29 +3,42 @@ import org.exoplatform.platform.qa.ui.commons.Base;
 import org.exoplatform.platform.qa.ui.selenium.platform.HomePagePlatform;
 import org.exoplatform.platform.qa.ui.selenium.platform.ManageLogInOut;
 import org.exoplatform.platform.qa.ui.selenium.platform.NavigationToolbar;
+
 import org.exoplatform.platform.qa.ui.wiki.pageobject.RichTextEditor;
 import org.exoplatform.platform.qa.ui.wiki.pageobject.WikiDraftPage;
+
+import org.exoplatform.platform.qa.ui.selenium.platform.social.SpaceHomePage;
+import org.exoplatform.platform.qa.ui.selenium.platform.social.SpaceManagement;
+import org.exoplatform.platform.qa.ui.wiki.pageobject.RichTextEditor;
+
 import org.exoplatform.platform.qa.ui.wiki.pageobject.WikiHomePage;
 import org.exoplatform.platform.qa.ui.wiki.pageobject.WikiManagement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+
 import static com.codeborne.selenide.Selenide.$;
+
 import static org.exoplatform.platform.qa.ui.selenium.Utils.getRandomNumber;
 import static org.exoplatform.platform.qa.ui.selenium.locator.wiki.WikiLocators.*;
 import static org.exoplatform.platform.qa.ui.selenium.logger.Logger.info;
 @Tag("wiki")
 @Tag("smoke")
-public class WikiBasicActionManagePageAddDeleteTestIT extends Base {
 
+
+
+@Tag("test")
+public class WikiBasicActionManagePageAddDeleteTestIT extends Base {
 
 	HomePagePlatform homePagePlatform;
 	WikiHomePage wikiHomePage;
 	ManageLogInOut manageLogInOut;
 	WikiManagement wikiManagement;
 	NavigationToolbar navigationToolbar;
+
 	RichTextEditor richTextEditor;
 	WikiDraftPage wikidraftpage;
+
 
 
 	@BeforeEach
@@ -36,6 +49,7 @@ public class WikiBasicActionManagePageAddDeleteTestIT extends Base {
 		manageLogInOut = new ManageLogInOut(this);
 		wikiManagement = new WikiManagement(this);
 		navigationToolbar = new NavigationToolbar(this);
+
 		wikidraftpage = new WikiDraftPage (this);
 		try {
 			richTextEditor = new RichTextEditor(this);
@@ -50,6 +64,7 @@ public class WikiBasicActionManagePageAddDeleteTestIT extends Base {
 	 *<li> Pre-Condition: </li>
 	 *<li> Post-Condition: </li>
 	 */
+
 
 
 	@Test

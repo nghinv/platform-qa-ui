@@ -355,8 +355,9 @@ public class WikiManagement {
   public void renamePageByDoubleClick(String title, String newTitle) {
     info("Open the page");
     Actions action = new Actions(this.testBase.getExoWebDriver().getWebDriver());
-    action.doubleClick(evt.waitForAndGetElement(ELEMENT_PAGE_TITLE.replace("${title}", title), 2000, 0)).perform();
-    evt.type(ELEMENT_WIKI_PAGE_TITLE_RENAME_FIELD, newTitle, true);
+    $(byText(title)).waitUntil(Condition.appears,Configuration.timeout);
+    $(byId("UIWikiPageControlArea")).find(byText(title)).doubleClick();
+    $(ELEMENT_WIKI_PAGE_TITLE_RENAME_FIELD).setValue(newTitle);
     Actions actionEnter = new Actions(this.testBase.getExoWebDriver().getWebDriver());
     actionEnter.sendKeys(Keys.ENTER).perform();
     actionEnter.release();
@@ -368,12 +369,12 @@ public class WikiManagement {
    */
   public void watchAPage(String mess) {
     info("Click on More link");
-    evt.click(ELEMENT_MORE_LINK);
+    $(ELEMENT_MORE_LINK).click();
     info("Click on watch link");
-    evt.click(ELEMENT_WATCH_LINK);
+    $(ELEMENT_WATCH_LINK).click();
     info("Show message :'You started watching this page now.'");
-    evt.waitForAndGetElement(ELEMENT_POPUP_MESSAGE_CONTENT.replace("${message}", mess), 2000, 0);
-    evt.click(ELEMENT_BTN_OK);
+    $(ELEMENT_POPUP_MESSAGE_CONTENT).waitUntil(Condition.appears,Configuration.timeout);
+    $(ELEMENT_BTN_OK).click();
 
   }
 
