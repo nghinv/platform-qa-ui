@@ -102,7 +102,7 @@ public class WikiManagement {
   public void saveAddPage() {
     info("Save all changes");
     ELEMENT_SAVE_BUTTON_ADD_PAGE.click();
-   // ELEMENT_SAVE_BUTTON_ADD_PAGE.waitUntil(Condition.disappears,Configuration.timeout);
+   ELEMENT_SAVE_BUTTON_ADD_PAGE.waitUntil(Condition.disappears,Configuration.timeout);
     info("Wiki page simple is created successfully");
   }
 
@@ -210,7 +210,7 @@ public class WikiManagement {
    */
   public void movePageWhenUserDoesNotHavePerMissionInDestination(String page1, String page2, boolean destination) {
     info("Open a wiki page 1");
-    evt.waitForAndGetElement(ELEMENT_TREE_WIKI_NAME.replace("${name}", page1), 2000, 0).click();
+   // evt.waitForAndGetElement(ELEMENT_TREE_WIKI_NAME.replace("${name}", page1), 2000, 0).click();
     info("Click on More link");
     evt.click(ELEMENT_MORE_LINK);
     if (destination) {

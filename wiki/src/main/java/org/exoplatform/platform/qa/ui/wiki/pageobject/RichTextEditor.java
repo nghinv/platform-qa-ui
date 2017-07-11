@@ -2,6 +2,7 @@ package org.exoplatform.platform.qa.ui.wiki.pageobject;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selenide.switchTo;
 import static org.exoplatform.platform.qa.ui.selenium.locator.wiki.WikiLocators.*;
 import static org.exoplatform.platform.qa.ui.selenium.logger.Logger.info;
 
@@ -1384,7 +1385,9 @@ public class RichTextEditor {
       $(ELEMENT_TITLE_WIKI_INPUT).val(title);
     info("Input a content for the page");
     if (!content.isEmpty()) {
-      plf.inputFrame(ELEMENT_CONTENT_WIKI_FRAME, content);
+      switchTo().frame(0);
+      $(byId("body")).sendKeys(content);
+      switchTo().defaultContent();
     }
     info("Waiting 30s before saved all changes");
     $(ELEMENT_DRAFT_NOTIFY).waitUntil(Condition.appears,31000,1);

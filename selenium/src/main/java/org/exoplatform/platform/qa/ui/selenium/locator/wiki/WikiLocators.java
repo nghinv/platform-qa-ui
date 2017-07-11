@@ -435,6 +435,8 @@ public class WikiLocators {
   public static final String ELEMENT_TREE_WIKI_NAME                                     =
                                                     ".//*[@id='iconTreeExplorer']//*[contains(text(),'${name}')]";
 
+  public static final SelenideElement ELEMENT_TREE_NAME_WIKI =
+                                                 $(byClassName("uiLeftContainerArea"));
   public static final String ELEMENT_TREE_WIKI_PARENT_NODE_CHILD_NODE                   =
                                                                       ".//*[@id='iconTreeExplorer']//*[contains(text(),'$parent')]/../../..//*[contains(text(),'$child')]";
 
@@ -820,8 +822,10 @@ public class WikiLocators {
   public static final String ELEMENT_DELETE_DRAFT_MESSAGE                               =
                                                           "Are you sure you want to delete this draft?";
 
-  public static final By ELEMENT_DRAFT_OF_NEW_PAGE                                  =
-                                                     By.xpath("//*[@id=\"UIWikiDraftGrid\"]/table/tbody/tr/td[1]/div/a");
+  public static final SelenideElement ELEMENT_DRAFT_NEW_PAGE                            =
+                                                                            $(byId("UIWikiDraftGrid"));
+  public static final String ELEMENT_DRAFT_OF_NEW_PAGE                                  =
+                                                       "//*[@id=\"UIWikiDraftGrid\"]/table/tbody/tr/td[1]/div/a";
 
 
   public static final By ELEMENT_DELETE_DRAFT                                       =
