@@ -820,8 +820,9 @@ public class WikiLocators {
   public static final String ELEMENT_DELETE_DRAFT_MESSAGE                               =
                                                           "Are you sure you want to delete this draft?";
 
-  public static final String ELEMENT_DRAFT_OF_NEW_PAGE                                  =
-                                                       "//*[@id='UIWikiDraftGrid']//*[contains(text(),'${title}')]";
+  public static final By ELEMENT_DRAFT_OF_NEW_PAGE                                  =
+                                                     By.xpath("//*[@id=\"UIWikiDraftGrid\"]/table/tbody/tr/td[1]/div/a");
+
 
   public static final By ELEMENT_DELETE_DRAFT                                       =
                                                  By.xpath("//*[@id=\"UIWikiDraftGrid\"]/table/tbody/tr/td[4]/a[2]/i");

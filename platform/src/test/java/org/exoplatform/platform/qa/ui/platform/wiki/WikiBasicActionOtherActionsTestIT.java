@@ -501,27 +501,5 @@ public class WikiBasicActionOtherActionsTestIT extends Base {
 		wikiHomePage.deleteWiki(title);
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
