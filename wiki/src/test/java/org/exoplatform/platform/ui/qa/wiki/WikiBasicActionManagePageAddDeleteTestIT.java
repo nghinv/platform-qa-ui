@@ -3,6 +3,7 @@ package org.exoplatform.platform.ui.qa.wiki;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static org.exoplatform.platform.qa.ui.selenium.Utils.getRandomNumber;
+import static org.exoplatform.platform.qa.ui.selenium.locator.wiki.WikiLocators.ELEMENT_SOURCE_EDITOR_BUTTON_PLF4_1;
 import static org.exoplatform.platform.qa.ui.selenium.logger.Logger.info;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -16,6 +17,7 @@ import org.exoplatform.platform.qa.ui.selenium.platform.HomePagePlatform;
 import org.exoplatform.platform.qa.ui.wiki.pageobject.RichTextEditor;
 import org.exoplatform.platform.qa.ui.wiki.pageobject.WikiHomePage;
 import org.exoplatform.platform.qa.ui.wiki.pageobject.WikiManagement;
+import org.openqa.selenium.By;
 
 @Tag("wiki")
 @Tag("smoke")
@@ -80,5 +82,6 @@ public class WikiBasicActionManagePageAddDeleteTestIT extends Base {
     homePagePlatform.goToWiki();
     wikiHomePage.deleteWiki(wiki);
   }
+
 
 }
