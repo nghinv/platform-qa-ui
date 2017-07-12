@@ -1366,5 +1366,9 @@ public static final SelenideElement ELEMENT_DELETE_LINK2= $(byText("Delete Page"
 public static final SelenideElement ELEMENT_POPUP_SELECT_WIKI_PAGE= $(byId("isc_2"));
 public  static final SelenideElement ELEMENT_ALERT_MESSAGE= $(byClassName("alert"));
 
+public  static final By  ELEMENT_VIEW_PAGE_HISTORY     =
+        By.xpath("//*[@id='UIWikiPageInfo']/div[2]/div[2]/table/tbody/tr[2]/td/div/button");
+
+
 
 }
