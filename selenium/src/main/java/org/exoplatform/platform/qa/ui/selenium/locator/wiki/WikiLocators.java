@@ -435,6 +435,8 @@ public class WikiLocators {
   public static final String ELEMENT_TREE_WIKI_NAME                                     =
                                                     ".//*[@id='iconTreeExplorer']//*[contains(text(),'${name}')]";
 
+  public static final SelenideElement ELEMENT_TREE_NAME_WIKI =
+                                                 $(byClassName("uiLeftContainerArea"));
   public static final String ELEMENT_TREE_WIKI_PARENT_NODE_CHILD_NODE                   =
                                                                       ".//*[@id='iconTreeExplorer']//*[contains(text(),'$parent')]/../../..//*[contains(text(),'$child')]";
 
@@ -508,8 +510,8 @@ public class WikiLocators {
   public static final String ELEMENT_SELECT_TEMPLATE_LINK                               =
                                                           ".//*[contains(text(),'${template}')]/../..//input";
 
-  public static final String ELEMENT_TEMPLATE_PREVIEW_BTN                               =
-                                                          ".//*[contains(text(),'${template}')]/../..//*[@class='uiIconPreview uiIconLightGray']";
+  public static final By ELEMENT_TEMPLATE_PREVIEW_BTN                               =
+                                                            By.xpath("//*[@id=\"UIWikiTemplateGrid\"]/tbody/tr[2]/td[4]/a[2]/i");
 
   public static final By     ELEMENT_TEMPLATE_SELECT_FORM                               = By.id("UIWikiSelectTemplateForm");
 
@@ -534,8 +536,8 @@ public class WikiLocators {
   public static final SelenideElement ELEMENT_SELECT_TEMPLATE_TwoColumnLayout         =
                                                           $(byXpath("//*[@id=\"UIWikiTemplateGrid\"]/tbody/tr[6]/td[1]/div/input"));
   // Preview page
-  public static final String ELEMENT_PREVIEW_TEMPLATE_CONTENT                           =
-                                                              "//*[@class='uiWikiPageTitlePreview' and contains(text(), '${template}')]";
+  public static final By ELEMENT_PREVIEW_TEMPLATE_CONTENT                           =
+                                                             By.xpath("//*[@id=\"UIWikiMaskWorkspace\"]/div[2]");
 
   public static final String ELEMENT_PREVIEW_PAGE_CONTENT                               =
                                                           ".//*[@id='UIPreviewContentDisplay']//*[contains(text(),'${content}')]";
@@ -820,11 +822,14 @@ public class WikiLocators {
   public static final String ELEMENT_DELETE_DRAFT_MESSAGE                               =
                                                           "Are you sure you want to delete this draft?";
 
+  public static final SelenideElement ELEMENT_DRAFT_NEW_PAGE                            =
+                                                                            $(byId("UIWikiDraftGrid"));
   public static final String ELEMENT_DRAFT_OF_NEW_PAGE                                  =
-                                                       "//*[@id='UIWikiDraftGrid']//*[contains(text(),'${title}')]";
+                                                       "//*[@id=\"UIWikiDraftGrid\"]/table/tbody/tr/td[1]/div/a";
 
-  public static final String ELEMENT_DELETE_DRAFT                                       =
-                                                  ".//*[@id='UIWikiDraftGrid']//*[contains(text(),'${title}')]/../../..//*[@class='uiIconDeleteDraft uiIconLightGray']";
+
+  public static final By ELEMENT_DELETE_DRAFT                                       =
+                                                 By.xpath("//*[@id=\"UIWikiDraftGrid\"]/table/tbody/tr/td[4]/a[2]/i");
 
   public static final String ELEMENT_DRAFT_OF_EDIT_PAGE                                 =
                                                         "//*[@id='UIWikiDraftGrid']//*[text()='${title}']";

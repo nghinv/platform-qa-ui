@@ -55,7 +55,6 @@ public class WikiHomePage {
     $(ELEMENT_FROM_TEMPLATE_LINK).click();
   }
 
-
   /**
    * Go to "Add blank wiki page"
    */

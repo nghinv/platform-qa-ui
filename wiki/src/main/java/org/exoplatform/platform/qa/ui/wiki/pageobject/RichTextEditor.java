@@ -2,6 +2,7 @@ package org.exoplatform.platform.qa.ui.wiki.pageobject;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selenide.switchTo;
 import static org.exoplatform.platform.qa.ui.selenium.locator.wiki.WikiLocators.*;
 import static org.exoplatform.platform.qa.ui.selenium.logger.Logger.info;
 
@@ -138,8 +139,8 @@ public class RichTextEditor {
    * @param columns Number of columns that will be added in the table
    */
   public void insertTable2WikiPage(String rows, String columns) {
-    evt.mouseOverAndClick(ELEMENT_TABLE_LINK);
-    evt.mouseOverAndClick(ELEMENT_INSERT_TABLE_LINK);
+    $(ELEMENT_TABLE_LINK).click();
+    $(ELEMENT_INSERT_TABLE_LINK).click();
     evt.type(ELEMENT_ROW_TEXTBOX, rows, true);
     evt.type(ELEMENT_COLUMN_TEXTBOX, columns, true);
     evt.click(but.ELEMENT_INSERT_TABLE);
@@ -1289,13 +1290,10 @@ public class RichTextEditor {
   public void addSimplePageWithAutoSaveStatus(String title, String content) {
     info("Input a title for the page");
     if (!title.isEmpty())
-      $(ELEMENT_TITLE_WIKI_INPUT).val(title);
-    info("Input a content for the page");
-    if (!content.isEmpty()) {
-      plf.inputFrame(ELEMENT_CONTENT_WIKI_FRAME, content);
-    }
+      $(ELEMENT_TITLE_WIKI_INPUT).setValue(title);
     info("Waiting 30s before saved all changes");
-    evt.waitForAndGetElement(ELEMENT_WIKI_PAGE_TOOL_BAR_AUTO_SAVE_TEXT, 31000, 1);
+    $(ELEMENT_DRAFT_NOTIFY).waitUntil(Condition.appears,31000,1);
+    info("Save all changes");
 
   }
 
@@ -1364,15 +1362,16 @@ public class RichTextEditor {
    * @param newContent
    */
   public void editSimplePageWithAutoSave(String newTitle, String newContent) {
-    info("Input a title for the page");
+    info("Input a new title for the page");
     if (!newTitle.isEmpty())
-      evt.type(ELEMENT_TITLE_WIKI_INPUT, newTitle, true);
-    info("Input a content for the page");
+      $(ELEMENT_TITLE_WIKI_INPUT).val(newTitle);
+    info("Input a new content for the page");
     if (!newContent.isEmpty()) {
       plf.inputFrame(ELEMENT_CONTENT_WIKI_FRAME, newContent);
     }
     info("Waiting 30s before saved all changes");
-    evt.waitForAndGetElement(ELEMENT_WIKI_PAGE_TOOL_BAR_AUTO_SAVE_TEXT, 31000, 0);
+    $(ELEMENT_DRAFT_NOTIFY).waitUntil(Condition.appears,31000,1);
+    info("Save all changes");
   }
 
   /**
@@ -1387,13 +1386,16 @@ public class RichTextEditor {
       $(ELEMENT_TITLE_WIKI_INPUT).val(title);
     info("Input a content for the page");
     if (!content.isEmpty()) {
-      plf.inputFrame(ELEMENT_CONTENT_WIKI_FRAME, content);
+      switchTo().frame(0);
+      $(byId("body")).sendKeys(content);
+      switchTo().defaultContent();
     }
     info("Waiting 30s before saved all changes");
-    evt.waitForAndGetElement(ELEMENT_WIKI_PAGE_TOOL_BAR_AUTO_SAVE_TEXT, 31000, 1);
+    $(ELEMENT_DRAFT_NOTIFY).waitUntil(Condition.appears,31000,1);
+    info("Save all changes");
     info("Cancel adding page");
-    evt.click(ELEMENT_CANCEL_BUTTON_ADD_PAGE, 0, true);
-    evt.click(ELEMENT_CONFIRMATION_POPUP_YES_BTN);
+    $(ELEMENT_CANCEL_BUTTON_ADD_PAGE).click();
+    $(ELEMENT_CONFIRMATION_POPUP_YES_BTN).click();
   }
 
   /**

@@ -1,5 +1,7 @@
 package org.exoplatform.platform.qa.ui.wiki.pageobject;
 
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selectors.*;
 import static org.exoplatform.platform.qa.ui.selenium.locator.wiki.WikiLocators.ELEMENT_DELETE_DRAFT;
 import static org.exoplatform.platform.qa.ui.selenium.locator.wiki.WikiLocators.ELEMENT_DRAFT_OF_NEW_PAGE;
 import static org.exoplatform.platform.qa.ui.selenium.logger.Logger.info;
@@ -35,9 +37,8 @@ public class WikiDraftPage {
    * @param title The title of a wiki's page to be deleted.
    */
   public void deleteDraft(String title) {
-    evt.click(ELEMENT_DELETE_DRAFT.replace("${title}", title));
+    $(ELEMENT_DELETE_DRAFT).click();
     alert.acceptAlert();
-    evt.waitForElementNotPresent(ELEMENT_DELETE_DRAFT.replace("${title}", title));
   }
 
   /**
@@ -47,7 +48,7 @@ public class WikiDraftPage {
    */
   public void resumeADraft(String title) {
     info("Click on the title of the draf in the list");
-    evt.waitForAndGetElement(ELEMENT_DRAFT_OF_NEW_PAGE.replace("${title}", title), 3000, 0).click();
+    $(byId("UIWikiDraftGrid")).find(byText(title+"(New Page)")).click();
 
   }
 }
