@@ -1,7 +1,8 @@
 package org.exoplatform.platform.qa.ui.wiki.pageobject;
 
+import static com.codeborne.selenide.Selectors.byId;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.switchTo;
 import static org.exoplatform.platform.qa.ui.selenium.locator.wiki.WikiLocators.*;
 import static org.exoplatform.platform.qa.ui.selenium.logger.Logger.info;
@@ -9,10 +10,11 @@ import static org.exoplatform.platform.qa.ui.selenium.logger.Logger.info;
 import java.awt.event.KeyEvent;
 import java.io.File;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 
 import org.exoplatform.platform.qa.ui.selenium.Button;
 import org.exoplatform.platform.qa.ui.selenium.TestBase;
@@ -35,7 +37,7 @@ public class RichTextEditor {
    * @param testBase
    * @throws Exception
    */
-  public RichTextEditor(TestBase testBase) throws Exception {
+  public RichTextEditor(TestBase testBase) {
     this.testBase = testBase;
     this.evt = testBase.getElementEventTestBase();
     this.but = new Button(testBase);
@@ -515,8 +517,7 @@ public class RichTextEditor {
    * Add a simple wiki page with rich text
    *
    * @param title updated title of the wiki page. Can not be <code>null</code>
-   * @param content updated content of the wiki page. Can not be
-   *          <code>null</code>
+   * @param content updated content of the wiki page. Can not be <code>null</code>
    */
   public void addSimplePage(String title, String content) {
     info("Input a title for the page");
@@ -525,7 +526,8 @@ public class RichTextEditor {
     }
     info("Input a content for the page");
     if (!content.isEmpty()) {
-    $(ELEMENT_CONTENT_WIKI_FRAME).sendKeys(content);    }
+      $(ELEMENT_CONTENT_WIKI_FRAME).sendKeys(content);
+    }
   }
 
   /**
@@ -621,8 +623,7 @@ public class RichTextEditor {
    * Modify Wiki content with rich text
    *
    * @param title updated title of the wiki page. Can not be <code>null</code>
-   * @param content updated content of the wiki page. Can not be
-   *          <code>null</code>
+   * @param content updated content of the wiki page. Can not be <code>null</code>
    */
   public void inputDataToPage(String title, String content, Boolean isClearTitle, Boolean isClearContent) {
     if (title != null) {
@@ -850,8 +851,7 @@ public class RichTextEditor {
   /**
    * Edit a simple wiki page with rich editor
    *
-   * @param newTitle updated title of the wiki page. Can not be
-   *          <code>null</code>
+   * @param newTitle updated title of the wiki page. Can not be <code>null</code>
    * @param newContent updated content of the wiki page. Can not be
    *          <code>null</code>
    */
@@ -1292,7 +1292,7 @@ public class RichTextEditor {
     if (!title.isEmpty())
       $(ELEMENT_TITLE_WIKI_INPUT).setValue(title);
     info("Waiting 30s before saved all changes");
-    $(ELEMENT_DRAFT_NOTIFY).waitUntil(Condition.appears,31000,1);
+    $(ELEMENT_DRAFT_NOTIFY).waitUntil(Condition.appears, 31000, 1);
     info("Save all changes");
 
   }
@@ -1303,8 +1303,10 @@ public class RichTextEditor {
    * @param page
    */
   public void selectPageInAllPagesTab(String page) {
-//    WebElement el = evt.waitForAndGetElement(ELEMENT_ALL_PAGE_TAB_PAGE_SELECTED.replace("$title", page), 5000, 1, 2);
-   // evt.scrollToElement(el, this.testBase.getExoWebDriver().getWebDriver());
+    // WebElement el =
+    // evt.waitForAndGetElement(ELEMENT_ALL_PAGE_TAB_PAGE_SELECTED.replace("$title",
+    // page), 5000, 1, 2);
+    // evt.scrollToElement(el, this.testBase.getExoWebDriver().getWebDriver());
     if ($(byText(page)).is(Condition.exist)) {
       info("Select the page");
       ELEMENT_POPUP_SELECT_WIKI_PAGE.find(byText(page)).waitUntil(Condition.appears, Configuration.timeout).click();
@@ -1370,7 +1372,7 @@ public class RichTextEditor {
       plf.inputFrame(ELEMENT_CONTENT_WIKI_FRAME, newContent);
     }
     info("Waiting 30s before saved all changes");
-    $(ELEMENT_DRAFT_NOTIFY).waitUntil(Condition.appears,31000,1);
+    $(ELEMENT_DRAFT_NOTIFY).waitUntil(Condition.appears, 31000, 1);
     info("Save all changes");
   }
 
@@ -1391,7 +1393,7 @@ public class RichTextEditor {
       switchTo().defaultContent();
     }
     info("Waiting 30s before saved all changes");
-    $(ELEMENT_DRAFT_NOTIFY).waitUntil(Condition.appears,31000,1);
+    $(ELEMENT_DRAFT_NOTIFY).waitUntil(Condition.appears, 31000, 1);
     info("Save all changes");
     info("Cancel adding page");
     $(ELEMENT_CANCEL_BUTTON_ADD_PAGE).click();

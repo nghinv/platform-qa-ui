@@ -1,21 +1,20 @@
 package org.exoplatform.platform.qa.ui.wiki.pageobject;
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-
-import static com.codeborne.selenide.Selectors.*;
 import static org.exoplatform.platform.qa.ui.selenium.locator.wiki.WikiLocators.*;
 import static org.exoplatform.platform.qa.ui.selenium.logger.Logger.info;
 
 import java.util.ArrayList;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
+
 import org.exoplatform.platform.qa.ui.selenium.TestBase;
-import org.exoplatform.platform.qa.ui.selenium.Utils;
 import org.exoplatform.platform.qa.ui.selenium.testbase.ElementEventTestBase;
 
 public class WikiValidattions {
@@ -45,7 +44,8 @@ public class WikiValidattions {
    */
   public void verifyTitleDrafPage(String title) {
     info("Verify that a draf page with the title:" + title + " is shown in draf table");
-//    evt.waitForAndGetElement(ELEMENT_DRAFT_OF_NEW_PAGE.replace("${title}", title));
+    // evt.waitForAndGetElement(ELEMENT_DRAFT_OF_NEW_PAGE.replace("${title}",
+    // title));
   }
 
   /**
@@ -55,7 +55,8 @@ public class WikiValidattions {
    */
   public void verifyNotTitleDrafPage(String title) {
     info("Verify that a draf page with the title:" + title + " is shown in draf table");
-//    evt.waitForElementNotPresent(ELEMENT_DRAFT_OF_NEW_PAGE.replace("${title}", title));
+    // evt.waitForElementNotPresent(ELEMENT_DRAFT_OF_NEW_PAGE.replace("${title}",
+    // title));
   }
 
   /**
@@ -266,7 +267,8 @@ public class WikiValidattions {
       evt.click(ELEMENT_MORE_LINK, 0, true);
       evt.waitForElementNotPresent(ELEMENT_PERMISSION_LINK);
     } else {
-    //  evt.waitForElementNotPresent(ELEMENT_TREE_WIKI_NAME.replace("${name}", title));
+      // evt.waitForElementNotPresent(ELEMENT_TREE_WIKI_NAME.replace("${name}",
+      // title));
     }
   }
 
@@ -315,8 +317,8 @@ public class WikiValidattions {
   }
 
   /**
-   * Verify that Draft changes page is shown when click [View Draft changes]
-   * link on status
+   * Verify that Draft changes page is shown when click [View Draft changes] link
+   * on status
    */
   public void verifyTitleDraftChangesPage() {
     info("Verify that Draf changes page is shown");
@@ -348,9 +350,9 @@ public class WikiValidattions {
   }
 
   /**
-   * Verify draf in out date version status with text: "Your version is
-   * outdated, a version of this content has been updated by another user. You
-   * can [view your changes] and [Continue Editing] or [delete] your draft."
+   * Verify draf in out date version status with text: "Your version is outdated,
+   * a version of this content has been updated by another user. You can [view
+   * your changes] and [Continue Editing] or [delete] your draft."
    *
    * @param message
    */
@@ -366,8 +368,7 @@ public class WikiValidattions {
   }
 
   /**
-   * Verify email format of the email link after inserted a email link to the
-   * page
+   * Verify email format of the email link after inserted a email link to the page
    *
    * @param address
    */
@@ -393,7 +394,8 @@ public class WikiValidattions {
    */
   public void verifyInsertedExistLink(String label, String pageLink) {
     info("The page link is shown");
-    $(byText(pageLink)).waitUntil(Condition.appears, Configuration.timeout);  }
+    $(byText(pageLink)).waitUntil(Condition.appears, Configuration.timeout);
+  }
 
   /**
    * Verify that the system redirects to the wiki page that is created
@@ -461,8 +463,8 @@ public class WikiValidattions {
    * Verify that edit permission is checked or not
    *
    * @param userGroupMembership is username/Group or Membership
-   * @param isChecked = true if want to verify that is checked = false if want
-   *          to verify that is not checked
+   * @param isChecked = true if want to verify that is checked = false if want to
+   *          verify that is not checked
    */
   public void verifyEditPermisison(String userGroupMembership, boolean isChecked) {
     if (isChecked) {
@@ -478,8 +480,8 @@ public class WikiValidattions {
    * Verify that view permission is checked or not
    *
    * @param userGroupMembership is username/Group or Membership
-   * @param isChecked = true if want to verify that is checked = false if want
-   *          to verify that is not checked
+   * @param isChecked = true if want to verify that is checked = false if want to
+   *          verify that is not checked
    */
   public void verifyViewPermisison(String userGroupMembership, boolean isChecked) {
     if (isChecked) {
@@ -796,12 +798,12 @@ public class WikiValidattions {
   public void verifyScrollDownOfSpaceSwitcher() {
     info("Scroll down");
     WebElement spaceList = evt.waitForAndGetElement(By.className("spaceList"));
-    String str1 = String.valueOf(((JavascriptExecutor) testBase.getExoWebDriver().getWebDriver()).executeScript(
-                                                                                                                "return arguments[0].clientHeight;",
-                                                                                                                spaceList));
-    String str = String.valueOf(((JavascriptExecutor) testBase.getExoWebDriver().getWebDriver()).executeScript(
-                                                                                                               "return arguments[0].scrollHeight;",
-                                                                                                               spaceList));
+    String str1 = String.valueOf(((JavascriptExecutor) testBase.getExoWebDriver()
+                                                               .getWebDriver()).executeScript("return arguments[0].clientHeight;",
+                                                                                              spaceList));
+    String str = String.valueOf(((JavascriptExecutor) testBase.getExoWebDriver()
+                                                              .getWebDriver()).executeScript("return arguments[0].scrollHeight;",
+                                                                                             spaceList));
     int clientHeight = Integer.parseInt(str1);
     int scrollHeight = Integer.parseInt(str);
     assert clientHeight < scrollHeight;
@@ -1017,10 +1019,12 @@ public class WikiValidattions {
   public void verifyDraftExistsInDraftListOrNot(String title, boolean exist) {
     info("Verify that Draft exists in Draft list or Not");
     if (exist) {
-//      evt.waitForAndGetElement(ELEMENT_DRAFT_OF_NEW_PAGE.replace("${title}", title));
+      // evt.waitForAndGetElement(ELEMENT_DRAFT_OF_NEW_PAGE.replace("${title}",
+      // title));
       info("Draft exists in Draft list");
     } else {
-//      evt.waitForElementNotPresent(ELEMENT_DRAFT_OF_NEW_PAGE.replace("${title}", title));
+      // evt.waitForElementNotPresent(ELEMENT_DRAFT_OF_NEW_PAGE.replace("${title}",
+      // title));
       info("Draft does not exist in Draft list");
     }
 

@@ -1,22 +1,23 @@
 package org.exoplatform.platform.qa.ui.wiki.pageobject;
+
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static org.exoplatform.platform.qa.ui.selenium.locator.wiki.WikiLocators.*;
 import static org.exoplatform.platform.qa.ui.selenium.logger.Logger.info;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.SelenideElement;
+
 import org.exoplatform.platform.qa.ui.selenium.Button;
 import org.exoplatform.platform.qa.ui.selenium.ManageAlert;
 import org.exoplatform.platform.qa.ui.selenium.TestBase;
-import org.exoplatform.platform.qa.ui.selenium.Utils;
 import org.exoplatform.platform.qa.ui.selenium.platform.PlatformBase;
 import org.exoplatform.platform.qa.ui.selenium.testbase.ElementEventTestBase;
 
@@ -48,18 +49,23 @@ public class WikiManagement {
    */
   public void selectTemplateWikiPage(SelenideElement eTemplate) {
     info("--Select  template--");
-    $(ELEMENT_TEMPLATE_SELECT_FORM).waitUntil(Condition.appears,Configuration.timeout);
-    switch (eTemplate.getValue()){
-        case "HOW-TO_Guide": eTemplate.selectRadio("HOW-TO_Guide");
-        break;
-        case "Three-Column_Layout": eTemplate.selectRadio("Three-Column_Layout");
-        break;
-        case "Status_Meeting": eTemplate.selectRadio("Status_Meeting");
-        break;
-        case "Leave_Planning": eTemplate.selectRadio("Leave_Planning");
-        break;
-        case "Two-Column_Layout": eTemplate.selectRadio("Two-Column_Layout");
-        break;
+    $(ELEMENT_TEMPLATE_SELECT_FORM).waitUntil(Condition.appears, Configuration.timeout);
+    switch (eTemplate.getValue()) {
+    case "HOW-TO_Guide":
+      eTemplate.selectRadio("HOW-TO_Guide");
+      break;
+    case "Three-Column_Layout":
+      eTemplate.selectRadio("Three-Column_Layout");
+      break;
+    case "Status_Meeting":
+      eTemplate.selectRadio("Status_Meeting");
+      break;
+    case "Leave_Planning":
+      eTemplate.selectRadio("Leave_Planning");
+      break;
+    case "Two-Column_Layout":
+      eTemplate.selectRadio("Two-Column_Layout");
+      break;
     }
   }
 
@@ -100,7 +106,7 @@ public class WikiManagement {
   public void saveAddPage() {
     info("Save all changes");
     ELEMENT_SAVE_BUTTON_ADD_PAGE.click();
-   ELEMENT_SAVE_BUTTON_ADD_PAGE.waitUntil(Condition.disappears,Configuration.timeout);
+    ELEMENT_SAVE_BUTTON_ADD_PAGE.waitUntil(Condition.disappears, Configuration.timeout);
     info("Wiki page simple is created successfully");
   }
 
@@ -147,8 +153,8 @@ public class WikiManagement {
   /**
    * Edit paragraph in a Wiki page
    *
-   * @param paragraphTitle input paragraph title without space character. Can
-   *          not be <code>null</code>.
+   * @param paragraphTitle input paragraph title without space character. Can not
+   *          be <code>null</code>.
    * @param paragraphContent input paragraph content with heading followed help
    *          tips. Can not be <code>null</code>.
    */
@@ -184,31 +190,31 @@ public class WikiManagement {
    */
   public void movePage(String page1, String page2) {
     info("Open a wiki page 1");
-    $(byText(page1)).waitUntil(Condition.appears,Configuration.timeout).click();
+    $(byText(page1)).waitUntil(Condition.appears, Configuration.timeout).click();
 
     info("Click on More link");
     $(ELEMENT_MORE_LINK).click();
     info("Click on Move page link");
-      $(ELEMENT_MOVE_PAGE).hover().click();
+    $(ELEMENT_MOVE_PAGE).hover().click();
 
     info("Move page popup is shown");
-    $(byText(page2)).waitUntil(Condition.appears,Configuration.timeout);
+    $(byText(page2)).waitUntil(Condition.appears, Configuration.timeout);
     $(byId("UIMoveTree")).find(byText(page2)).click();
-    $(ELEMENT_WIKI_PAGE_MOVE_POPUP_SAVE).waitUntil(Condition.appears,Configuration.timeout);
+    $(ELEMENT_WIKI_PAGE_MOVE_POPUP_SAVE).waitUntil(Condition.appears, Configuration.timeout);
     $(ELEMENT_WIKI_PAGE_MOVE_POPUP_SAVE).click();
     info("The page 1 is moved to page 2");
   }
 
   /**
-   * Move page 1 to page 2 when user does not have edit permission in
-   * destination
+   * Move page 1 to page 2 when user does not have edit permission in destination
    *
    * @param page1
    * @param page2
    */
   public void movePageWhenUserDoesNotHavePerMissionInDestination(String page1, String page2, boolean destination) {
     info("Open a wiki page 1");
-   // evt.waitForAndGetElement(ELEMENT_TREE_WIKI_NAME.replace("${name}", page1), 2000, 0).click();
+    // evt.waitForAndGetElement(ELEMENT_TREE_WIKI_NAME.replace("${name}", page1),
+    // 2000, 0).click();
     info("Click on More link");
     evt.click(ELEMENT_MORE_LINK);
     if (destination) {
@@ -241,7 +247,7 @@ public class WikiManagement {
     boolean check = (checkLocation.length > 0 ? checkLocation[0] : false);
     info("Open a wiki page 1");
 
-    $(byText(page1)).waitUntil(Condition.appears,Configuration.timeout).click();
+    $(byText(page1)).waitUntil(Condition.appears, Configuration.timeout).click();
 
     info("Click on More link");
     $(ELEMENT_MORE_LINK).click();
@@ -250,23 +256,23 @@ public class WikiManagement {
 
     info("Move page popup is shown");
     info("Click on Drop down");
-    $(ELEMENT_MOVE_SPACESWITCHER).waitUntil(Condition.appears,Configuration.timeout);
+    $(ELEMENT_MOVE_SPACESWITCHER).waitUntil(Condition.appears, Configuration.timeout);
     $(ELEMENT_MOVE_SPACESWITCHER).click();
 
     info("Select a location");
 
     info("Select a page in the list");
 
-    $(byId("UIWikiMovePageForm")).find(byText(locator)).waitUntil(Condition.appears,Configuration.timeout).click();
-    $(byClassName("sideBarContent")).find(byText(page2)).waitUntil(Condition.appears,Configuration.timeout).click();
+    $(byId("UIWikiMovePageForm")).find(byText(locator)).waitUntil(Condition.appears, Configuration.timeout).click();
+    $(byClassName("sideBarContent")).find(byText(page2)).waitUntil(Condition.appears, Configuration.timeout).click();
 
     info("Save all changes");
     if (check) {
       info("Check New Location Home");
       $(byId("newLocation")).find(byText(locator)).find(byText("Wiki Home")).find(byText(page2)).should(Condition.exist);
     }
-      $(ELEMENT_MOVE_BTNMOVE).waitUntil(Condition.appears,Configuration.timeout);
-      $(ELEMENT_MOVE_BTNMOVE).click();
+    $(ELEMENT_MOVE_BTNMOVE).waitUntil(Condition.appears, Configuration.timeout);
+    $(ELEMENT_MOVE_BTNMOVE).click();
   }
 
   /**
@@ -301,7 +307,7 @@ public class WikiManagement {
     info("Click on detele button");
     $(byText(file)).parent().parent().find(byClassName("uiIconDelete ")).click();
     info("Verify that the file is removed");
-    $(ELEMENT_PAGE_DOWNLOADATTACHFILE).waitUntil(Condition.disappears,Configuration.timeout);
+    $(ELEMENT_PAGE_DOWNLOADATTACHFILE).waitUntil(Condition.disappears, Configuration.timeout);
   }
 
   /**
@@ -312,7 +318,7 @@ public class WikiManagement {
   public void checkAddRelationDropDownList(String spaces) {
 
     info("Click on Drop down");
-    $(ELEMENT_ADD_RELATED_PAGE_POPUP_DROPDOWN).waitUntil(Condition.appears,Configuration.timeout);
+    $(ELEMENT_ADD_RELATED_PAGE_POPUP_DROPDOWN).waitUntil(Condition.appears, Configuration.timeout);
     $(ELEMENT_ADD_RELATED_PAGE_POPUP_DROPDOWN).click();
 
     info("Verify that Intranet location is shown is the list");
@@ -330,7 +336,7 @@ public class WikiManagement {
       }
 
     }
-    $(ELEMENT_SPACE_SWITHCHER_DROPDOWN_CLOSE).waitUntil(Condition.appears,Configuration.timeout);
+    $(ELEMENT_SPACE_SWITHCHER_DROPDOWN_CLOSE).waitUntil(Condition.appears, Configuration.timeout);
     $(ELEMENT_SPACE_SWITHCHER_DROPDOWN_CLOSE).click();
     info("All options are checked");
   }
@@ -344,7 +350,7 @@ public class WikiManagement {
     info("Preview the template");
     $(ELEMENT_TEMPLATE_PREVIEW_BTN).click();
     info("Verify that the layout is shown");
-    $(ELEMENT_PREVIEW_TEMPLATE_CONTENT).waitUntil(Condition.appears,2000);
+    $(ELEMENT_PREVIEW_TEMPLATE_CONTENT).waitUntil(Condition.appears, 2000);
     $(ELEMENT_TEMPLATE_PREVIEW_PAGE_CLOSE_BTN).click();
 
     evt.click(ELEMENT_TEMPLATE_CANCEL_BTN);
@@ -360,7 +366,7 @@ public class WikiManagement {
   public void renamePageByDoubleClick(String title, String newTitle) {
     info("Open the page");
     Actions action = new Actions(this.testBase.getExoWebDriver().getWebDriver());
-    $(byText(title)).waitUntil(Condition.appears,Configuration.timeout);
+    $(byText(title)).waitUntil(Condition.appears, Configuration.timeout);
     $(byId("UIWikiPageControlArea")).find(byText(title)).doubleClick();
     $(ELEMENT_WIKI_PAGE_TITLE_RENAME_FIELD).setValue(newTitle);
     Actions actionEnter = new Actions(this.testBase.getExoWebDriver().getWebDriver());
@@ -378,7 +384,7 @@ public class WikiManagement {
     info("Click on watch link");
     $(ELEMENT_WATCH_LINK).click();
     info("Show message :'You started watching this page now.'");
-    $(ELEMENT_POPUP_MESSAGE_CONTENT).waitUntil(Condition.appears,Configuration.timeout);
+    $(ELEMENT_POPUP_MESSAGE_CONTENT).waitUntil(Condition.appears, Configuration.timeout);
     $(ELEMENT_BTN_OK).click();
 
   }
@@ -448,7 +454,6 @@ public class WikiManagement {
       assert true;
     else
       assert false : "the link's format is incorrect";
-
 
   }
 
@@ -558,15 +563,15 @@ public class WikiManagement {
   public void addSimplePageByTemplateWithAutoSave(SelenideElement template, String newTitle) {
     info("Select a template");
     selectTemplateWikiPage(template);
-   $(ELEMENT_TEMPLATE_SELECT_BTN).click();
+    $(ELEMENT_TEMPLATE_SELECT_BTN).click();
     if (!newTitle.isEmpty())
       $(ELEMENT_TITLE_WIKI_INPUT).setValue(newTitle);
     info("Waiting 30s before saved all changes");
-      try {
-          Thread.sleep(31000);
-      } catch (InterruptedException e) {
-          e.printStackTrace();
-      }
+    try {
+      Thread.sleep(31000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     info("Save all changes");
     saveAddPage();
   }
@@ -580,7 +585,8 @@ public class WikiManagement {
   public void PreviewASimplePage(String title, String content) {
     info("Preview a simple page");
     goToPreviewPage();
-//    evt.waitForAndGetElement(ELEMENT_PREVIEW_TEMPLATE_CONTENT.replace("${template}", title), testBase.getDefaultTimeout(), 1);
+    // evt.waitForAndGetElement(ELEMENT_PREVIEW_TEMPLATE_CONTENT.replace("${template}",
+    // title), testBase.getDefaultTimeout(), 1);
     evt.waitForAndGetElement(ELEMENT_PREVIEW_PAGE_CONTENT.replace("${content}", content), testBase.getDefaultTimeout(), 1);
   }
 }
