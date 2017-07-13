@@ -9,6 +9,7 @@ import static org.exoplatform.platform.qa.ui.selenium.logger.Logger.info;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
+import org.junit.rules.Timeout;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -339,7 +340,7 @@ public class WikiManagement {
     info("Preview the template");
     $(ELEMENT_TEMPLATE_PREVIEW_BTN).click();
     info("Verify that the layout is shown");
-    $(ELEMENT_PREVIEW_TEMPLATE_CONTENT).waitUntil(Condition.appears,2000);
+    $(ELEMENT_PREVIEW_TEMPLATE_CONTENT).waitUntil(Condition.appears,Configuration.timeout);
     $(ELEMENT_TEMPLATE_PREVIEW_PAGE_CLOSE_BTN).click();
 
     evt.click(ELEMENT_TEMPLATE_CANCEL_BTN);
