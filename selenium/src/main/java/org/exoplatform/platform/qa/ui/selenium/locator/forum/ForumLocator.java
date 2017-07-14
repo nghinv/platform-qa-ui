@@ -42,7 +42,7 @@ public class ForumLocator {
                                                               By.xpath(".//*[@id='Administrations']//div[@data-toggle='dropdown']");
 
   public static final By     ELEMENT_ACTIONBAR_BOOKMARK_MANAGER                 =
-                                                                By.xpath(".//*[@id='OpenBookMark']//*[@class='uiIconBookmark uiIconLightGray']");
+                                                                By.xpath("//*[@id=\"OpenBookMark\"]/a");
 
   public static final By     ELEMENT_ACTIONBAR_BOOKMARK_ICON                    =
                                                              By.xpath(".//*[@id='UITopicDetail' or @id='UITopicContent' or @id='UICategory']//*[@class='actionIcon']/*[@class='uiIconBookmark uiIconLightGray']");
@@ -178,6 +178,8 @@ public class ForumLocator {
   public static final String ELEMENT_TOPIC_PRIVATE_BUTTON                       =
                                                           ".//*[contains(text(),'${post}')]/../../../.././/*[contains(@class,'btn')]//*[contains(text(),'Private')]";
 
+  public static final By MORE_ACTIONS_TOPIC                                     =
+                                                By.xpath("//*[@id=\"UITopicDetail\"]/div[4]/div[1]/ul/li[3]/div");
   // administration
   public static final By     ELEMENT_ACTIONBAR_ADMIN_BANIP                      =
                                                            By.xpath(".//*[@id='Administrations']//a[contains(.,'Banned IPs')]");
@@ -215,7 +217,7 @@ public class ForumLocator {
 
   // Breadcumb
   public static final By     ELEMENT_CATEGORY_BREADCUMB_HOME                    =
-                                                             By.xpath("//*[@id='UIBreadcumbs']//*[text()='Home']");
+                                                             By.xpath("//*[@id=\"UIBreadcumbs\"]/div[1]/ul/li[2]/a");
 
   public static final String ELEMENT_CATEGORY_FORUM_BREAD                       =
                                                           "//*[text()='${category}']/../..//*[text()='${forum}']";
@@ -236,14 +238,17 @@ public class ForumLocator {
   public static final String MESSAGE_UNWATCH                                    = "You are no longer watching this item.";
 
   // Bookmark
+  public static final By ELEMENT_TOPIC_BOOKMARK                                 =
+                                                    By.xpath("//*[@id=\"UITopicDetail\"]/div[4]/div[1]/ul/li[3]/div/ul/li[12]/a");
+
   public static final String ELEMENT_FORUM_BOOKMARK_NAME                        =
                                                          "//*[@class='uiShowBookMarkForm resizable']//*[text()='${name}']";
 
-  public static final String ELEMENT_FORUM_BOOKMARK_DELETE                      =
-                                                           "//*[@class='uiShowBookMarkForm resizable']//*[text()='${name}']/../..//*[@class='uiIconDelete uiIconLightGray']";
+  public static final By ELEMENT_FORUM_BOOKMARK_DELETE                      =
+                                                       By.xpath("//*[@id=\"UIShowBookMarkForm\"]/div[2]/div/table/tbody/tr/td[3]/a/i")    ;
 
   public static final By     ELEMENT_FORUM_BOOKMARK_CLOSE_ICON                  =
-                                                               By.xpath(".//*[@id='UIForumPopupWindow']//div[@class='ClosePopup']");
+                                                               By.xpath("//*[@id=\"UIForumPopupWindow\"]/div[1]/a");
 
   // Category right click option
   public static final String ELEMENT_FORUM_CONTEXT_MENU_BOOKMARK                =
