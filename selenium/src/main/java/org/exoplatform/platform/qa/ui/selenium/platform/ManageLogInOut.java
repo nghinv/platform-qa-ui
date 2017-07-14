@@ -29,7 +29,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import org.exoplatform.platform.qa.ui.selenium.ManageAlert;
 import org.exoplatform.platform.qa.ui.selenium.TestBase;
-import org.exoplatform.platform.qa.ui.selenium.Utils;
 import org.exoplatform.platform.qa.ui.selenium.locator.ManageLogInOutLocator;
 import org.exoplatform.platform.qa.ui.selenium.testbase.ElementEventTestBase;
 
@@ -111,7 +110,7 @@ public class ManageLogInOut {
     testBase.getExoWebDriver().getWebDriver();
     $(ELEMENT_INPUT_USERNAME_CAS).setValue(username);
     $(ELEMENT_INPUT_PASSWORD_CAS).setValue(password);
-     ELEMENT_SIGN_IN_BUTTON_CAS.click();
+    ELEMENT_SIGN_IN_BUTTON_CAS.click();
 
     // waitForElementNotPresent(ELEMENT_SIGN_IN_BUTTON_CAS,3000);
 
@@ -142,7 +141,6 @@ public class ManageLogInOut {
       testBase.getExoWebDriver().getWebDriver().manage().deleteAllCookies();
       testBase.getExoWebDriver().getWebDriver();
     }
-
 
     if (ExpectedConditions.alertIsPresent() != null) {
       alt = new ManageAlert(testBase);

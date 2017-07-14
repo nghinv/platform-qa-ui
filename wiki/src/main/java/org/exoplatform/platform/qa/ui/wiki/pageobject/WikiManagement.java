@@ -195,7 +195,7 @@ public class WikiManagement {
     info("Click on More link");
     $(ELEMENT_MORE_LINK).click();
     info("Click on Move page link");
-    $(ELEMENT_MOVE_PAGE).hover().click();
+    ELEMENT_MOVE_PAGE.hover().click();
 
     info("Move page popup is shown");
     $(byText(page2)).waitUntil(Condition.appears, Configuration.timeout);
@@ -252,7 +252,7 @@ public class WikiManagement {
     info("Click on More link");
     $(ELEMENT_MORE_LINK).click();
     info("Click on Move page link");
-    $(ELEMENT_MOVE_PAGE).click();
+    ELEMENT_MOVE_PAGE.click();
 
     info("Move page popup is shown");
     info("Click on Drop down");
