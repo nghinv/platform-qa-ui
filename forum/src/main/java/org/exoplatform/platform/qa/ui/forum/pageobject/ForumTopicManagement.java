@@ -4,22 +4,20 @@ import static com.codeborne.selenide.Condition.appears;
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.executeJavaScript;
 import static org.exoplatform.platform.qa.ui.selenium.locator.forum.ForumLocator.*;
 import static org.exoplatform.platform.qa.ui.selenium.logger.Logger.info;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
 
-import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.By;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 
 import org.exoplatform.platform.qa.ui.selenium.Button;
 import org.exoplatform.platform.qa.ui.selenium.ManageAlert;
 import org.exoplatform.platform.qa.ui.selenium.TestBase;
-import org.exoplatform.platform.qa.ui.selenium.Utils;
 import org.exoplatform.platform.qa.ui.selenium.platform.PlatformBase;
 import org.exoplatform.platform.qa.ui.selenium.platform.PlatformPermission;
 import org.exoplatform.platform.qa.ui.selenium.testbase.ElementEventTestBase;
@@ -79,7 +77,7 @@ public class ForumTopicManagement {
    */
   public void openMoreActionMenu() {
     info("Wait More link is shown");
-    $(ELEMENT_MORE_ACTION).waitUntil(appears,Configuration.timeout);
+    $(ELEMENT_MORE_ACTION).waitUntil(appears, Configuration.timeout);
     info("Click on More link");
     $(ELEMENT_MORE_ACTION).click();
   }
@@ -106,7 +104,7 @@ public class ForumTopicManagement {
       $(ELEMENT_DELETE_TOPIC).click();
 
       info("Verify that confirm popup is shown");
-      $(byText("Are you sure you want to delete this topic ?")).waitUntil(appears,Configuration.timeout);
+      $(byText("Are you sure you want to delete this topic ?")).waitUntil(appears, Configuration.timeout);
       info("Click on OK on Confirm popup");
       $(ELEMENT_OK_DELETE).click();
       break;
@@ -210,7 +208,7 @@ public class ForumTopicManagement {
    * @param content
    */
   public void postReply(String title, String content) {
-    evt.click(ELEMENT_POST_REPLY);
+    $(ELEMENT_POST_REPLY).click();
     replyTopic(title, content);
   }
 
@@ -222,27 +220,25 @@ public class ForumTopicManagement {
    */
   public void replyTopic(String title, String content) {
     if (!title.isEmpty())
-      evt.type(ELEMENT_TITLE_POST, title, true);
+      $(ELEMENT_TITLE_POST).setValue(title);
     plf.inputFrame(ELEMENT_POST_CONTENT, content);
-    evt.click(ELEMENT_POST_FORM_SUBMIT);
+    $(ELEMENT_POST_FORM_SUBMIT).click();
     info("Verify that the post is created");
-    evt.waitForAndGetElement(ELEMENT_POST_IN_TOPIC.replace("{$title}", title).replace("{$content}", content));
   }
 
   /**
    * Edit a post
    *
-   * @param title
    * @param newTitle
    * @param newContent
    */
-  public void editPost(String title, String newTitle, String newContent) {
-    evt.click(ELEMENT_EDIT_POST.replace("{$title}", title));
+  public void editPost(String newTitle, String newContent) {
+    $(byText(newContent)).parent().parent().parent().parent().find(byText("Edit")).click();
     if (!newTitle.isEmpty())
-      evt.type(ELEMENT_TITLE_POST, newTitle, true);
+    $(ELEMENT_TITLE_POST).setValue(newTitle);
     if (!newContent.isEmpty())
-      plf.inputFrame(ELEMENT_POST_CONTENT, newContent);
-    evt.click(ELEMENT_POST_FORM_SUBMIT);
+    plf.inputFrame(ELEMENT_POST_CONTENT, newContent);
+    $(ELEMENT_POST_FORM_SUBMIT).click();
   }
 
   /**
@@ -252,12 +248,10 @@ public class ForumTopicManagement {
    * @param newContent
    */
   public void quotePost(String title, String newContent) {
-    evt.click(By.xpath(ELEMENT_QUOTE_POST.replace("{$title}", title)));
-
+    $(byText(newContent)).parent().parent().parent().parent().find(byText("Quote")).click();
     if (newContent != "")
-      plf.inputFrame(ELEMENT_POST_CONTENT, newContent);
-
-    evt.click(ELEMENT_POST_FORM_SUBMIT);
+    plf.inputFrame(ELEMENT_POST_CONTENT, newContent);
+    $(ELEMENT_POST_FORM_SUBMIT).click();
   }
 
   /**
@@ -267,16 +261,24 @@ public class ForumTopicManagement {
    * @param newTitle
    * @param content
    */
-  public void privatePost(String titlePost, String newTitle, String content) {
-    evt.click(By.xpath(ELEMENT_PRIVATE_POST.replace("{$title}", titlePost)));
-
+  public void privatePostfortopic(String newTitle, String content) {
+    $(byText("Private")).click();
     if (newTitle != "")
-      evt.type(ELEMENT_TITLE_POST, newTitle, true);
+    $(ELEMENT_TITLE_POST).setValue(newTitle);
 
     if (content != "")
-      plf.inputFrame(ELEMENT_POST_CONTENT, content);
+    plf.inputFrame(ELEMENT_POST_CONTENT, content);
+    $(ELEMENT_POST_FORM_SUBMIT).click();
+  }
 
-    evt.click(ELEMENT_POST_FORM_SUBMIT);
+  public void privatePostFromPost(String newTitle, String content) {
+    $(byText(content)).parent().parent().parent().parent().find(byText("Private")).click();
+    if (newTitle != "")
+    $(ELEMENT_TITLE_POST).setValue(newTitle);
+
+    if (content != "")
+    plf.inputFrame(ELEMENT_POST_CONTENT, content);
+    $(ELEMENT_POST_FORM_SUBMIT).click();
   }
 
   /**
@@ -489,7 +491,8 @@ public class ForumTopicManagement {
 
     info("Input the message:" + message);
     $(ELEMENT_START_TOPIC_MESSAGE_FRAME_CKEDITOR).click();
-    $(ELEMENT_START_TOPIC_MESSAGE_FRAME_CKEDITOR).sendKeys(message);
+    plf.inputFrame(ELEMENT_POST_CONTENT, message);
+    // $(ELEMENT_START_TOPIC_MESSAGE_FRAME_CKEDITOR).sendKeys(message);
 
     info("click on Attached file button");
     $(ELEMENT_START_TOPIC_ATTACH_FILE).click();
@@ -530,7 +533,7 @@ public class ForumTopicManagement {
       $(ELEMENT_START_TOPIC_MESSAGE_FRAME_CKEDITOR).click();
     $(ELEMENT_START_TOPIC_MESSAGE_FRAME_CKEDITOR).sendKeys(newContent);
     info("Click on Submit button");
-   $(ELEMENT_SUBMIT_BUTTON).click();
+    $(ELEMENT_SUBMIT_BUTTON).click();
     // click(ELEMENT_SUBMIT_BUTTON);
     info("All changes are saved");
   }
