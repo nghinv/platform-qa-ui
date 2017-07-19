@@ -231,7 +231,6 @@ public class WikiBasicActionManagePageAddDeleteTestIT extends Base {
   public void Auto_save_message() {
     info("Test: Check auto save message");
     String title = "title" + getRandomNumber();
-    String newTitle = "newTitle" + getRandomNumber();
     homePagePlatform.goToWiki();
     wikiHomePage.goToAddBlankPage();
     richTextEditor.checkAutoSaveMessage(title, title);
@@ -242,7 +241,4 @@ public class WikiBasicActionManagePageAddDeleteTestIT extends Base {
     info("Delete the page ");
     homePagePlatform.goToWiki();
   }
-
-
-
 }
