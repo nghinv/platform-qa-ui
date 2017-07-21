@@ -21,7 +21,6 @@ import static org.exoplatform.platform.qa.ui.selenium.logger.Logger.info;
 
 @Tag("smoke")
 @Tag("forum")
-@Tag("test")
 public class ForumTopicTestIT extends Base {
     HomePagePlatform homePagePlatform;
 
@@ -286,8 +285,6 @@ public class ForumTopicTestIT extends Base {
         forumHomePage.goToHomeCategory();
         forumCategoryManagement.deleteCategory(name);
     }
-
-
     /**
      * <li>Case ID:116764.</li>
      * <li>Test Case Name: Create new Topic.</li>
@@ -305,7 +302,6 @@ public class ForumTopicTestIT extends Base {
         String name2 = "name2" + getRandomNumber();
         String desc = "desc" + getRandomNumber();
         String topic = "topic" + getRandomNumber();
-
     /*
      * Step Number: 1 Step Name: - Create new category Step Description: - Login
      * and goto Forum application - Click [Add Category] - Fill the information
@@ -315,7 +311,6 @@ public class ForumTopicTestIT extends Base {
         homePagePlatform.goToForum();
         info("Add a category");
         forumCategoryManagement.addCategorySimple(name, "", desc);
-
     /*
      * Step number: 2 Step Name: - Create new Forum Step Description: - Click
      * [Add Forum] - Fill the information and click [Save] Input Data: Expected
@@ -337,5 +332,4 @@ public class ForumTopicTestIT extends Base {
         forumHomePage.goToHomeCategory();
         forumCategoryManagement.deleteCategory(name);
     }
-
 }
