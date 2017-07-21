@@ -53,8 +53,8 @@ public class ForumLocator {
   public static final By     ELEMENT_ACTIONBAR_PRIVATE_MESSAGE                  =
                                                                By.xpath(".//*[@id='uiRightActionBar']//a[contains(.,'Private Messages')]");
 
-  public static final String ELEMENT_ACTIONBAR_TOPIC_TAGDELETE                  =
-                                                               ".//*[@id='UITopicDetail']//a[@data-original-title='${tag}']/..//*[@class='uiIconClose uiIconLightGray']";
+  public static final By ELEMENT_ACTIONBAR_TOPIC_TAGDELETE                  =
+                                                               By.xpath("//*[@id=\"UITopicDetail\"]/div[2]/div[2]/ul[1]/li/span/i");
 
   public static final By     ELEMENT_FORUM_TOPIC_LOCK                           = By.xpath("//*[@class='uiIconLockMedium']");
 
@@ -606,15 +606,14 @@ public class ForumLocator {
 
   public static final By     ELEMENT_ACTIONBAR_TOPIC_RATE                       =
                                                           By.xpath("//*[@class='uiIconForumStar uiIconForumLightGray']");
-  public static final By ELEMENT_TOPIC_RATE                                     =
-                                                          By.xpath("//*[@id=\"UITopicDetail\"]/div[4]/div[1]/ul/li[3]/div/ul/li[13]/a/i");
+
 
   public static final String ELEMENT_ACTIONBAR_TOPIC_TAGPRESENT                 =
                                                                 ".//*[@id='UITopicDetail']//a[@data-original-title='${tag}']";
 
   // Tag of topic
   public static final By     ELEMENT_FORUM_TOPIC_ADD_TAG                        =
-                                                         By.xpath(".//*[@id='UITopicDetail']//a[contains(text(),'Add Tag')]");
+                                                         By.xpath("//*[@id=\"UITopicDetail\"]/div[4]/div[1]/ul/li[2]/div/ul/li/div/a");
 
   // Rate
   public static final By ELEMENT_FORUM_VOTE_MARK                                =
@@ -624,6 +623,9 @@ public class ForumLocator {
                                                 ".//*[@class='postViewTitle'][contains(text(),'${title}')]";
 
   // More Action menu
+  public static final By ELEMENT_TOPIC_RATE                                     =
+                                                By.xpath("//*[@id=\"UITopicDetail\"]/div[4]/div[1]/ul/li[3]/div/ul/li[13]/a/i");
+
   public static final By     ELEMENT_EDIT_TOPIC                                 =
                                                 By.xpath(".//*[@id='UITopicDetail']//a[contains(text(),'Edit')]");
 
