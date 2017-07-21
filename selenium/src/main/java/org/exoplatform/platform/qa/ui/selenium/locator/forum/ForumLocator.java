@@ -42,7 +42,7 @@ public class ForumLocator {
                                                               By.xpath(".//*[@id='Administrations']//div[@data-toggle='dropdown']");
 
   public static final By     ELEMENT_ACTIONBAR_BOOKMARK_MANAGER                 =
-                                                                By.xpath(".//*[@id='OpenBookMark']//*[@class='uiIconBookmark uiIconLightGray']");
+                                                                By.xpath("//*[@id=\"OpenBookMark\"]/a");
 
   public static final By     ELEMENT_ACTIONBAR_BOOKMARK_ICON                    =
                                                              By.xpath(".//*[@id='UITopicDetail' or @id='UITopicContent' or @id='UICategory']//*[@class='actionIcon']/*[@class='uiIconBookmark uiIconLightGray']");
@@ -53,8 +53,8 @@ public class ForumLocator {
   public static final By     ELEMENT_ACTIONBAR_PRIVATE_MESSAGE                  =
                                                                By.xpath(".//*[@id='uiRightActionBar']//a[contains(.,'Private Messages')]");
 
-  public static final String ELEMENT_ACTIONBAR_TOPIC_TAGDELETE                  =
-                                                               ".//*[@id='UITopicDetail']//a[@data-original-title='${tag}']/..//*[@class='uiIconClose uiIconLightGray']";
+  public static final By ELEMENT_ACTIONBAR_TOPIC_TAGDELETE                  =
+                                                               By.xpath("//*[@id=\"UITopicDetail\"]/div[2]/div[2]/ul[1]/li/span/i");
 
   public static final By     ELEMENT_FORUM_TOPIC_LOCK                           = By.xpath("//*[@class='uiIconLockMedium']");
 
@@ -178,6 +178,8 @@ public class ForumLocator {
   public static final String ELEMENT_TOPIC_PRIVATE_BUTTON                       =
                                                           ".//*[contains(text(),'${post}')]/../../../.././/*[contains(@class,'btn')]//*[contains(text(),'Private')]";
 
+  public static final By MORE_ACTIONS_TOPIC                                     =
+                                                By.xpath("//*[@id=\"UITopicDetail\"]/div[4]/div[1]/ul/li[3]/div");
   // administration
   public static final By     ELEMENT_ACTIONBAR_ADMIN_BANIP                      =
                                                            By.xpath(".//*[@id='Administrations']//a[contains(.,'Banned IPs')]");
@@ -208,15 +210,14 @@ public class ForumLocator {
 
   public static final By     ELEMENT_BBCODE_ADDBBCODEFORM_EXAMPLE               = By.xpath("//*[@id='Example']");
 
-  public static final String ELEMENT_BBCODE_EDITBBCODE                          =
-                                                       "//*[contains(text(),'${tag}')]/../..//*[ @class='uiIconEdit uiIconLightGray']";
-
-  public static final String ELEMENT_BBCODE_DELETEBBCODE                        =
-                                                         "//*[contains(text(),'${tag}')]/../..//*[ @class='uiIconDelete uiIconLightGray']";
+  public static final By ELEMENT_BBCODE_EDITBBCODE                          =
+                                                       By.xpath("//*[@id=\"UIBBCodeManagerForm\"]/div[2]/table/tbody/tr[28]/td[4]/a[1]/i");
+  public static final By ELEMENT_BBCODE_DELETEBBCODE                        =
+                                                         By.xpath("//*[@id=\"UIBBCodeManagerFormConfirm27\"]/i");
 
   // Breadcumb
   public static final By     ELEMENT_CATEGORY_BREADCUMB_HOME                    =
-                                                             By.xpath("//*[@id='UIBreadcumbs']//*[text()='Home']");
+                                                             By.xpath("//*[@id=\"UIBreadcumbs\"]/div[1]/ul/li[2]/a");
 
   public static final String ELEMENT_CATEGORY_FORUM_BREAD                       =
                                                           "//*[text()='${category}']/../..//*[text()='${forum}']";
@@ -237,14 +238,17 @@ public class ForumLocator {
   public static final String MESSAGE_UNWATCH                                    = "You are no longer watching this item.";
 
   // Bookmark
-  public static final String ELEMENT_FORUM_BOOKMARK_NAME                        =
-                                                         "//*[@class='uiShowBookMarkForm resizable']//*[text()='${name}']";
+  public static final By ELEMENT_TOPIC_BOOKMARK                                 =
+                                                    By.xpath("//*[@id=\"UITopicDetail\"]/div[4]/div[1]/ul/li[3]/div/ul/li[12]/a");
 
-  public static final String ELEMENT_FORUM_BOOKMARK_DELETE                      =
-                                                           "//*[@class='uiShowBookMarkForm resizable']//*[text()='${name}']/../..//*[@class='uiIconDelete uiIconLightGray']";
+  public static final By ELEMENT_FORUM_BOOKMARK_NAME                        =
+                                                    By.className("uiShowBookMarkForm");
+
+  public static final By ELEMENT_FORUM_BOOKMARK_DELETE                      =
+                                                       By.xpath("//*[@id=\"UIShowBookMarkForm\"]/div[2]/div/table/tbody/tr/td[3]/a/i")    ;
 
   public static final By     ELEMENT_FORUM_BOOKMARK_CLOSE_ICON                  =
-                                                               By.xpath(".//*[@id='UIForumPopupWindow']//div[@class='ClosePopup']");
+                                                               By.xpath("//*[@id=\"UIForumPopupWindow\"]/div[1]/a");
 
   // Category right click option
   public static final String ELEMENT_FORUM_CONTEXT_MENU_BOOKMARK                =
@@ -266,7 +270,7 @@ public class ForumLocator {
 
   public static final String ELEMENT_BBCODE_TAG_VERIFY                          = "//*[contains(text(),'${tag}')]";
 
-  public static final By     ELEMENT_BBCODE_USE_OPTION                          = By.xpath("//*[@id='UseOption']");
+  public static final By     ELEMENT_BBCODE_USE_OPTION                          = By.id("UseOption']");
 
   public static final By     ELEMENT_BBCODE_CONFIRM_DELETETAG                   =
                                                               By.xpath("//*[text()='Are you sure you want to delete this BB Code ?']/../../..//*[@class='btn actionOK']");
@@ -361,8 +365,10 @@ public class ForumLocator {
   // BBcode popup
   public static final By     ELEMENT_EDITSITE_SAVEBTN                           = By.xpath("//*[@class='btn' and text()='Save']");
 
+  public static final By ELEMENT_SAVE_BBCODE = By.xpath("//*[@id=\"UIAddBBCodeForm\"]/div[3]/button[1]");
+
   public static final By     ELEMENT_BBCODE_POPUP_CLOSEBTN                      =
-                                                           By.xpath(".//*[@id='BBCodeManagerForm']//button[text()='Close']");
+                                                           By.xpath("//*[@id=\"BBCodeManagerForm\"]/div/div[2]/button[3]");
 
   /***************************************************
    * FORUM MANAGEMENT
@@ -601,20 +607,25 @@ public class ForumLocator {
   public static final By     ELEMENT_ACTIONBAR_TOPIC_RATE                       =
                                                           By.xpath("//*[@class='uiIconForumStar uiIconForumLightGray']");
 
+
   public static final String ELEMENT_ACTIONBAR_TOPIC_TAGPRESENT                 =
                                                                 ".//*[@id='UITopicDetail']//a[@data-original-title='${tag}']";
 
   // Tag of topic
   public static final By     ELEMENT_FORUM_TOPIC_ADD_TAG                        =
-                                                         By.xpath(".//*[@id='UITopicDetail']//a[contains(text(),'Add Tag')]");
+                                                         By.xpath("//*[@id=\"UITopicDetail\"]/div[4]/div[1]/ul/li[2]/div/ul/li/div/a");
 
   // Rate
-  public static final String ELEMENT_FORUM_VOTE_MARK                            = "//*[@data-original-title='${star}']";
+  public static final By ELEMENT_FORUM_VOTE_MARK                                =
+                                                         By.xpath("//*[@id=\"UIRatingForm\"]/div[2]/div/div[1]/i[3]");
 
   public static final String ELEMENT_POST_TITLE                                 =
                                                 ".//*[@class='postViewTitle'][contains(text(),'${title}')]";
 
   // More Action menu
+  public static final By ELEMENT_TOPIC_RATE                                     =
+                                                By.xpath("//*[@id=\"UITopicDetail\"]/div[4]/div[1]/ul/li[3]/div/ul/li[13]/a/i");
+
   public static final By     ELEMENT_EDIT_TOPIC                                 =
                                                 By.xpath(".//*[@id='UITopicDetail']//a[contains(text(),'Edit')]");
 
@@ -690,8 +701,8 @@ public class ForumLocator {
   public static final By     ELEMENT_POST_FORM_SUBMIT                           =
                                                       By.xpath("//*[@id='UIPostForm']//*[contains(text(),'Submit')]");
 
-  public static final String ELEMENT_POST_IN_TOPIC                              =
-                                                   "//*[@class='postViewTitle' and contains(text(),'{$title}')]/../..//*[@class='postContent']//*[contains(text(),'{$content}')]";
+  public static final By ELEMENT_POST_IN_TOPIC                              =
+                                             By.xpath("//*[@class='postViewTitle' and contains(text(),'{$title}')]/../..//*[@class='postContent']//*[contains(text(),'{$content}')]");
 
   public static final String ELEMENT_POST_IN_TOPIC_QUOTE                        =
                                                          "//*[@class='postViewTitle' and contains(text(),'{$title}')]/../..//*[@class='contentQuote']//*[contains(text(),'{$content}')]";
@@ -723,14 +734,16 @@ public class ForumLocator {
   public static final String ELEMENT_TOPIC_REPPLY_CONTENT                       = ".//*[contains(text(),'${content}')]";
 
   // foot page of post
-  public static final String ELEMENT_EDIT_POST                                  =
-                                               "//*[@class='postViewTitle' and contains(text(),'{$title}')]/../..//*[@data-original-title='Edit This Post']";
+
+  public final String ELEMENT_EDIT_POST = "//*[@class='postViewTitle' and contains(text(),'{$title}')]/../..//*[@data-original-title='Edit This Post']";
+
 
   public static final String ELEMENT_QUOTE_POST                                 =
                                                 "//*[@class='postViewTitle' and contains(text(),'{$title}')]/../..//*[@data-original-title='Reply with Quote']";
 
-  public static final String ELEMENT_DELETE_POST                                =
-                                                 "//*[@class='postViewTitle' and contains(text(),'{$title}')]/../..//*[@data-original-title='Delete This Post']";
+  public static final By ELEMENT_DELETE_POST                                =
+                                                        By.xpath ("//*[@id=\"UITopicDetailConfirm6\"]");
+
 
   public static final String ELEMENT_PRIVATE_POST                               =
                                                   "//*[@class='postViewTitle' and contains(text(),'{$title}')]/../..//*[@data-original-title='Private Reply']";
@@ -746,7 +759,7 @@ public class ForumLocator {
   public static final By     ELEMENT_POLL_OPTIONS1                              = By.id("Option1");
 
   public static final By     ELEMENT_POLL_SUBMIT                                =
-                                                 By.xpath("//*[@id='UIPollForm']//*[contains(text(),'Submit Poll')]");
+                                                 By.xpath("//*[@id=\"UIPollForm\"]/div[3]/button[1]");
 
   public static final By     ELEMENT_MORE_ACTIONS_POLL                          =
                                                        By.xpath("//*[@class='uiIconPoll uiIconLightGray']/../..//*[@class='uiIconSettings uiIconLightGray']");

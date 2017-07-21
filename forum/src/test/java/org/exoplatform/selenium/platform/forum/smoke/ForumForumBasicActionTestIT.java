@@ -24,7 +24,7 @@ import org.exoplatform.platform.qa.ui.selenium.platform.HomePagePlatform;
  */
 @Tag("smoke")
 @Tag("forum")
-public class Forum_Forum_BasicActionTestIT extends Base {
+public class ForumForumBasicActionTestIT extends Base {
 
   HomePagePlatform        homePagePlatform;
 
