@@ -155,7 +155,7 @@ public class ForumHomePage {
    */
   public void goToForum(String name) {
     info("Click on the forum with the name:" + name);
-    evt.click(ELEMENT_SELECT_FORUM_TOPIC.replace("${link}", name));
+    $(ELEMENT_SELECT_FORUM_TOPIC.replace("${link}", name)).click();
 
   }
 
