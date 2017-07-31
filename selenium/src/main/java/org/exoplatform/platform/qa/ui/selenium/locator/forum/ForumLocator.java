@@ -762,7 +762,7 @@ public class ForumLocator {
                                                  By.xpath("//*[@id=\"UIPollForm\"]/div[3]/button[1]");
 
   public static final By     ELEMENT_MORE_ACTIONS_POLL                          =
-                                                       By.xpath("//*[@class='uiIconPoll uiIconLightGray']/../..//*[@class='uiIconSettings uiIconLightGray']");
+                                                       By.xpath("//*[@id=\"UITopicPoll\"]/div[2]/div[1]/ul/li[2]/div/div/i");
 
   public static final By     ELEMENT_EDIT_POLL                                  =
                                                By.xpath("//*[@id='UITopicPoll']//*[contains(text(),'Edit')]");

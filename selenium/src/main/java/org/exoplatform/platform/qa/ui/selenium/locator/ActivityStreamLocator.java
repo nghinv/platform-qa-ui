@@ -291,9 +291,11 @@ public final class ActivityStreamLocator {
   public static final String
           ELEMENT_ACTIVITY_LIKE_ICON_BLUE =
           ".//*[contains(text(),'${nameFile}')]/../../../..//*[@class='uiIconThumbUp uiIconBlue']";
-  public static final String
-          ELEMENT_ACTIVITY_COMMENT_VIEW_HOVEROVER =
-          ".//*[contains(text(),'${comment}')]/../..//*[@class='uiIconWatch uiIconLightGray']";
+
+
+  //  public static final String ELEMENT_COMMENT_DELETE="DeleteCommentButtoncomment{id}";
+
+  public static final String ELEMENT_ACTIVITY_COMMENT_VIEW_HOVEROVER ="/portal/intranet/forum/topic/{id}";
   public static final String
           ELEMENT_PUBLICATION_COMMENTPOSTED =
           ".//*[contains(text(),'$activity')]/../../..//*[contains(text(),'${content}')]";
