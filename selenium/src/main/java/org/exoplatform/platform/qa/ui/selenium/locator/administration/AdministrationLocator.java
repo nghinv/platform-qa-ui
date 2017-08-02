@@ -252,6 +252,7 @@ public class AdministrationLocator {
   public static final SelenideElement ELEMENT_ECM_EXPLORER_DRIVES_ADD_DRIVES                       =
                                                                              $(byXpath("//*[@id=\"UIDriveList\"]/div[4]/button"));
 
+
   public static final By              ELEMENT_ECM_EXPLORER_NAME_DRIVES_FORM                        = By.xpath("//*[@id='name']");
 
   public static final SelenideElement ELEMENT_ECM_EXPLORER_APPLY_VIEWS_FORM                        =

@@ -176,7 +176,7 @@ public class PageCreationWizard {
   public void addContentDetail(String path, String content) {
     addApplication($(byTitle("Content")), $(byId("Content/portlet_SingleContentViewer")));
 
-    $(ELEMENT_PAGEEDITOR_VIEWPAGE).hover();
+    $(ELEMENT_PAGEEDITOR_VIEWPAGE).waitUntil(Condition.appears,Configuration.timeout).click();
     $(ELEMENT_CONTENT_DETAIL_EDIT_BTN).click();
     contDetail.selectFolderContent(path, content);
     $(ELEMENT_CONTENT_DETAIL_SAVE_BTN).click();
