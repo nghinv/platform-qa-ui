@@ -1319,18 +1319,15 @@ public class RichTextEditor {
    * @param page
    */
   public void selectPageInAllPagesTab(String page) {
-    // WebElement el =
-    // evt.waitForAndGetElement(ELEMENT_ALL_PAGE_TAB_PAGE_SELECTED.replace("$title",
-    // page), 5000, 1, 2);
-    // evt.scrollToElement(el, this.testBase.getExoWebDriver().getWebDriver());
-    if ($(byText(page)).is(Condition.exist)) {
-      info("Select the page");
+    info("Select the page");
       goToAllPagesTab();
-      ELEMENT_POPUP_SELECT_WIKI_PAGE.find(byText(page)).waitUntil(Condition.appears, Configuration.timeout).click();
+      ELEMENT_POPUP_SELECT_WIKI_PAGE.find(byText(page)).waitUntil(Condition.appears,Configuration.timeout);
+      ELEMENT_WIKI_UNPUT_LINK_EXISTED_PAGE.click();
       ELEMENT_WIKI_UNPUT_LINK_EXISTED_PAGE.setValue("intranet:"+page);
+      ELEMENT_POPUP_SELECT_WIKI_PAGE.find(byText(page)).click();
       info("Click on Select button");
       $(ELEMENT_SELECT_BUTTON).click();
-    }
+
 
   }
 

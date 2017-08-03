@@ -187,6 +187,7 @@ public class GateinPortalNavigationEditNavigationTestIT extends Base {
    * <li>Test Case Name:Edit node's page properties.</li>
    */
   @Test
+  @BugInPLF("No issue")
   public void test02_Add_Edit_Delete_NodePage() {
     info("Test 01: Add new node");
     String portalName = "portalName" + getRandomNumber();
@@ -266,6 +267,7 @@ public class GateinPortalNavigationEditNavigationTestIT extends Base {
    * <li>Test Case Name:Edit node's page properties.</li>
    */
   @Test
+  @BugInPLF("No issue")
   public void test03_Add_Edit_Delete_NodePage() {
     info("Test 01: Add new node");
     String portalName = "portalName" + getRandomNumber();
