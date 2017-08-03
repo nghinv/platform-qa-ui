@@ -2,6 +2,7 @@ package org.exoplatform.platform.qa.ui.gatein.pageobject;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.executeJavaScript;
 import static org.exoplatform.platform.qa.ui.selenium.locator.gatein.GateinLocator.*;
 import static org.exoplatform.platform.qa.ui.selenium.logger.Logger.info;
 
@@ -59,6 +60,8 @@ public class PortalManagePages {
     info("Select a type");
     $(ELEMENT_MANAGEPAGES_TYPE_DROPBOX).selectOption("group");
     info("Click on Search button");
+    // scroll up
+    executeJavaScript("window.scrollBy(0,-350);", "");
     $(ELEMENT_MANAGEPAGES_SEARCH_BUTTON).click();
     info("Verify that the search page is shown with correct results");
     $(byText(title)).should(Condition.exist);

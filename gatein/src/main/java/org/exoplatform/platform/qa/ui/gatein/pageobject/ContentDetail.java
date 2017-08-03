@@ -5,6 +5,8 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.refresh;
 import static org.exoplatform.platform.qa.ui.selenium.locator.gatein.GateinLocator.*;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import org.exoplatform.platform.qa.ui.selenium.TestBase;
 import org.exoplatform.platform.qa.ui.selenium.Utils;
 import org.exoplatform.platform.qa.ui.selenium.testbase.ElementEventTestBase;
@@ -29,7 +31,7 @@ public class ContentDetail {
    */
   public void selectFolderContent(String path, String content) {
     evt.waitForAndGetElement(ELEMENT_CONTENT_DETAIL_ADDPATH_BTN);
-    $(byClassName("uiIconAddPath")).click();
+    $(byClassName("uiIconAddPath")).waitUntil(Condition.appears, Configuration.timeout).click();
     String[] arrayPath = path.split("/");
     for (String arrayElement : arrayPath) {
       $(byText("Name")).click();

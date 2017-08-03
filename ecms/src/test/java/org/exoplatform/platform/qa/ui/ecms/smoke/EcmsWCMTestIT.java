@@ -97,9 +97,6 @@ public class EcmsWCMTestIT extends Base {
     $(ELEMENT_ADDNEWPAGE_BTNNEXT).click();
     $(ELEMENT_ADDNEWPAGE_BTNNEXT).click();
     pageCreationWizard.addContentDetail("General Drives/Sites Management/intranet", content);
-
-    navigationToolbar.goToEditContent();
-
     info("Delete Data test");
     info("Delete created file");
     navigationToolbar.goToSiteExplorer();
