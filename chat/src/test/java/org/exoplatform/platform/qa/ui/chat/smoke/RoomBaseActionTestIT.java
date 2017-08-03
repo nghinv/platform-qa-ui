@@ -195,5 +195,8 @@ public class RoomBaseActionTestIT extends Base {
     roomManagement.editTitleofAroom(room, newroom);
     $(byText(newroom)).should(Condition.exist);
     roomManagement.deleteRomm(newroom);
+    switchTo().window(0);
+    navigationToolbar.goToManageCommunity();
+    userandgroupmanagement.deleteUser(usernamea);
   }
 }
