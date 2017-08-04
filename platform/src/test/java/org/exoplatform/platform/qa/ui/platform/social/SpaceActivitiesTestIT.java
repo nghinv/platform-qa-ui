@@ -6,7 +6,6 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 import static org.exoplatform.platform.qa.ui.selenium.Utils.getRandomNumber;
 import static org.exoplatform.platform.qa.ui.selenium.locator.ActivityStreamLocator.*;
 import static org.exoplatform.platform.qa.ui.selenium.locator.HomePageLocator.*;
-import static org.exoplatform.platform.qa.ui.selenium.locator.NavigationToolBarLocator.ELEMENT_ADMINISTRATION_COMMUNITY;
 import static org.exoplatform.platform.qa.ui.selenium.locator.NavigationToolBarLocator.ELEMENT_TOOLBAR_ADMINISTRATION;
 import static org.exoplatform.platform.qa.ui.selenium.logger.Logger.info;
 
@@ -175,7 +174,7 @@ public class SpaceActivitiesTestIT extends Base {
     Integer idComment = Integer.parseInt(id) + 1;
     // hover on the comment to appear the delete button
     $(ELEMENT_TOOLBAR_ADMINISTRATION).click();
-    $(byId(ELEMENT_COMMENT_BLOC.replace("{id}",id))).hover().click();
+    $(byId(ELEMENT_COMMENT_BLOC.replace("{id}", id))).hover().click();
     $(byId(ELEMENT_COMMENT_DELETE.replace("{id}", idComment.toString()))).click();
     // Confirm
     ELEMENT_DELETE_POPUP_OK.click();

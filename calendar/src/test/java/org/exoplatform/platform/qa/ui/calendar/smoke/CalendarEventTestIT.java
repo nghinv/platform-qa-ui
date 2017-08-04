@@ -3,7 +3,6 @@ package org.exoplatform.platform.qa.ui.calendar.smoke;
 import static org.exoplatform.platform.qa.ui.selenium.Utils.getRandomNumber;
 import static org.exoplatform.platform.qa.ui.selenium.logger.Logger.info;
 
-import org.exoplatform.platform.qa.ui.core.context.BugInPLF;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -41,7 +40,6 @@ public class CalendarEventTestIT extends Base {
 
   /**
    * Case ID:115684. Test Case Name: Add an event in personal calendar
-
    */
   @Test
   public void test13_AddnEventInPersonalCalendar() {
@@ -58,9 +56,8 @@ public class CalendarEventTestIT extends Base {
      */
 
     /*
-     * Step number: 2 Step Name: Step Description: Step 2: save Input Data: -
-     * Input other values - Save Expected Outcome: Event is created in personal
-     * calendar
+     * Step number: 2 Step Name: Step Description: Step 2: save Input Data: - Input
+     * other values - Save Expected Outcome: Event is created in personal calendar
      */
     homePagePlatform.goToCalendarPage();
     calendarManagement.goToMenuFromMainCalendar(CalendarManagement.menuOfMainCalendar.ADDCAL);
@@ -79,14 +76,12 @@ public class CalendarEventTestIT extends Base {
                                               CalendarHomePage.selectViewOption.LIST,
                                               CalendarHomePage.selectDayOption.DETAILTIME);
 
-
-
     info("Test 15 Delete an Event in personal calendar");
     /*
-     * Step Number: 1 Step Name: - Step Description: Step 1: Delete an event
-     * Input Data: - Add an event - Delete an event right click on an existing
-     * event and select Delete - Click OK at confirmation message Expected
-     * Outcome: - The event is removed normally.
+     * Step Number: 1 Step Name: - Step Description: Step 1: Delete an event Input
+     * Data: - Add an event - Delete an event right click on an existing event and
+     * select Delete - Click OK at confirmation message Expected Outcome: - The
+     * event is removed normally.
      */
     calendarHomePage.deleteEventTask(titleEvent,
                                      CalendarHomePage.selectViewOption.LIST,
@@ -115,9 +110,8 @@ public class CalendarEventTestIT extends Base {
      */
 
     /*
-     * Step number: 2 Step Name: Step Description: Step 2: save Input Data: -
-     * Input other values - Save Expected Outcome: Event is created in personal
-     * calendar
+     * Step number: 2 Step Name: Step Description: Step 2: save Input Data: - Input
+     * other values - Save Expected Outcome: Event is created in personal calendar
      */
     homePagePlatform.goToCalendarPage();
     calendarManagement.goToMenuFromMainCalendar(CalendarManagement.menuOfMainCalendar.ADDCAL);
@@ -127,53 +121,53 @@ public class CalendarEventTestIT extends Base {
     info("Check default date");
     eventManagement.checkSuggestionEventTimeInQuickForm(null, null, 60);
     eventManagement.inputDataEventInQuickForm(titleEvent,
-            contentEvent,
-            getDate(0, "MM/dd/yyyy"),
-            getDate(0, "MM/dd/yyyy"),
-            false);
+                                              contentEvent,
+                                              getDate(0, "MM/dd/yyyy"),
+                                              getDate(0, "MM/dd/yyyy"),
+                                              false);
     eventManagement.saveQuickAddEvent();
     calendarHomePage.verifyIsPresentEventTask(titleEvent,
-            CalendarHomePage.selectViewOption.LIST,
-            CalendarHomePage.selectDayOption.DETAILTIME);
+                                              CalendarHomePage.selectViewOption.LIST,
+                                              CalendarHomePage.selectDayOption.DETAILTIME);
 
     info("Test 14 Edit an Event in personal calendar");
     /*
      * Step Number: 1 Step Name: - Step Description: Step 1: Edit an event Input
-     * Data: - Add an event - Edit an event by right click on a existing event
-     * and select Edit - Update some values - Change From time Expected Outcome:
-     * - To time is automatically set = From Time + 1hour
+     * Data: - Add an event - Edit an event by right click on a existing event and
+     * select Edit - Update some values - Change From time Expected Outcome: - To
+     * time is automatically set = From Time + 1hour
      */
 
     /*
-     * Step number: 2 Step Name: Step Description: Step 2: Save Input Data: -
-     * Save Expected Outcome: Event is saved successfully in personal calendar
+     * Step number: 2 Step Name: Step Description: Step 2: Save Input Data: - Save
+     * Expected Outcome: Event is saved successfully in personal calendar
      */
     calendarHomePage.goToEditEventTaskFormByRightClick(titleEvent,
-            CalendarHomePage.selectViewOption.WEEK,
-            CalendarHomePage.selectDayOption.DETAILTIME,
-            getDate(0, "MMM dd yyyy"));
+                                                       CalendarHomePage.selectViewOption.WEEK,
+                                                       CalendarHomePage.selectDayOption.DETAILTIME,
+                                                       getDate(0, "MMM dd yyyy"));
     eventManagement.checkSuggestionEventTimeInDetailForm(null, null, 60);
     eventManagement.inputDataEventInDetailForm(titleEvent2,
-            contentEvent2,
-            getDate(0, "MM/dd/yyyy"),
-            getDate(0, "MM/dd/yyyy"),
-            false);
+                                               contentEvent2,
+                                               getDate(0, "MM/dd/yyyy"),
+                                               getDate(0, "MM/dd/yyyy"),
+                                               false);
     eventManagement.saveAddEventDetails();
     calendarHomePage.verifyIsPresentEventTask(titleEvent2,
-            CalendarHomePage.selectViewOption.LIST,
-            CalendarHomePage.selectDayOption.DETAILTIME);
+                                              CalendarHomePage.selectViewOption.LIST,
+                                              CalendarHomePage.selectDayOption.DETAILTIME);
 
     info("Test 15 Delete an Event in personal calendar");
     /*
-     * Step Number: 1 Step Name: - Step Description: Step 1: Delete an event
-     * Input Data: - Add an event - Delete an event right click on an existing
-     * event and select Delete - Click OK at confirmation message Expected
-     * Outcome: - The event is removed normally.
+     * Step Number: 1 Step Name: - Step Description: Step 1: Delete an event Input
+     * Data: - Add an event - Delete an event right click on an existing event and
+     * select Delete - Click OK at confirmation message Expected Outcome: - The
+     * event is removed normally.
      */
     calendarHomePage.deleteEventTask(titleEvent2,
-            CalendarHomePage.selectViewOption.LIST,
-            CalendarHomePage.selectDayOption.DETAILTIME,
-            getDate(0, "MM/dd/yyyy"));
+                                     CalendarHomePage.selectViewOption.LIST,
+                                     CalendarHomePage.selectDayOption.DETAILTIME,
+                                     getDate(0, "MM/dd/yyyy"));
     calendarManagement.deleteCalendar(calendar, false);
   }
 
@@ -196,9 +190,8 @@ public class CalendarEventTestIT extends Base {
      */
 
     /*
-     * Step number: 2 Step Name: Step Description: Step 2: save Input Data: -
-     * Input other values - Save Expected Outcome: Event is created in personal
-     * calendar
+     * Step number: 2 Step Name: Step Description: Step 2: save Input Data: - Input
+     * other values - Save Expected Outcome: Event is created in personal calendar
      */
     homePagePlatform.goToCalendarPage();
     calendarManagement.goToMenuFromMainCalendar(CalendarManagement.menuOfMainCalendar.ADDCAL);
@@ -208,28 +201,26 @@ public class CalendarEventTestIT extends Base {
     info("Check default date");
     eventManagement.checkSuggestionEventTimeInQuickForm(null, null, 60);
     eventManagement.inputDataEventInQuickForm(titleEvent,
-            contentEvent,
-            getDate(0, "MM/dd/yyyy"),
-            getDate(0, "MM/dd/yyyy"),
-            false);
+                                              contentEvent,
+                                              getDate(0, "MM/dd/yyyy"),
+                                              getDate(0, "MM/dd/yyyy"),
+                                              false);
     eventManagement.saveQuickAddEvent();
     calendarHomePage.verifyIsPresentEventTask(titleEvent,
-            CalendarHomePage.selectViewOption.LIST,
-            CalendarHomePage.selectDayOption.DETAILTIME);
-
-
+                                              CalendarHomePage.selectViewOption.LIST,
+                                              CalendarHomePage.selectDayOption.DETAILTIME);
 
     info("Test 15 Delete an Event in personal calendar");
     /*
-     * Step Number: 1 Step Name: - Step Description: Step 1: Delete an event
-     * Input Data: - Add an event - Delete an event right click on an existing
-     * event and select Delete - Click OK at confirmation message Expected
-     * Outcome: - The event is removed normally.
+     * Step Number: 1 Step Name: - Step Description: Step 1: Delete an event Input
+     * Data: - Add an event - Delete an event right click on an existing event and
+     * select Delete - Click OK at confirmation message Expected Outcome: - The
+     * event is removed normally.
      */
     calendarHomePage.deleteEventTask(titleEvent,
-            CalendarHomePage.selectViewOption.LIST,
-            CalendarHomePage.selectDayOption.DETAILTIME,
-            getDate(0, "MM/dd/yyyy"));
+                                     CalendarHomePage.selectViewOption.LIST,
+                                     CalendarHomePage.selectDayOption.DETAILTIME,
+                                     getDate(0, "MM/dd/yyyy"));
     calendarManagement.deleteCalendar(calendar, false);
   }
 }

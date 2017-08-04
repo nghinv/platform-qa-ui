@@ -39,7 +39,7 @@ public class Forum_CategoryTestIT extends Base {
    * <li>Test Case Name: Add a category.</li>
    * <li>Pre-Condition:</li>
    * <li>Post-Condition:</li>
-  */
+   */
   @Test
   public void test02_AddACategory() {
     info("Test 2: Add a category");
@@ -47,16 +47,16 @@ public class Forum_CategoryTestIT extends Base {
     String nameCat = "nameCat" + getRandomNumber();
 
     /*
-     * Step Number: 1 Step Name: Add a category Step Description: - Go to Forum
-     * page - Click on Add Category - Put values - Save Input Data: Expected
-     * Outcome: - Category is added successfully and shown in Forum home
+     * Step Number: 1 Step Name: Add a category Step Description: - Go to Forum page
+     * - Click on Add Category - Put values - Save Input Data: Expected Outcome: -
+     * Category is added successfully and shown in Forum home
      */
     info("go to Forum home page");
     homePagePlatform.goToForum();
     info("Add a category");
     forumCategoryManagement.addCategorySimple(nameCat, "", nameCat);
 
-   ;
+    ;
 
     info("Test 04: Delete a category");
     info("delete category");
@@ -78,9 +78,9 @@ public class Forum_CategoryTestIT extends Base {
     String nameCat2 = "nameCat2" + getRandomNumber();
 
     /*
-     * Step Number: 1 Step Name: Add a category Step Description: - Go to Forum
-     * page - Click on Add Category - Put values - Save Input Data: Expected
-     * Outcome: - Category is added successfully and shown in Forum home
+     * Step Number: 1 Step Name: Add a category Step Description: - Go to Forum page
+     * - Click on Add Category - Put values - Save Input Data: Expected Outcome: -
+     * Category is added successfully and shown in Forum home
      */
     info("go to Forum home page");
     homePagePlatform.goToForum();
@@ -110,9 +110,9 @@ public class Forum_CategoryTestIT extends Base {
     String nameCat2 = "nameCat2" + getRandomNumber();
 
     /*
-     * Step Number: 1 Step Name: Add a category Step Description: - Go to Forum
-     * page - Click on Add Category - Put values - Save Input Data: Expected
-     * Outcome: - Category is added successfully and shown in Forum home
+     * Step Number: 1 Step Name: Add a category Step Description: - Go to Forum page
+     * - Click on Add Category - Put values - Save Input Data: Expected Outcome: -
+     * Category is added successfully and shown in Forum home
      */
     info("go to Forum home page");
     homePagePlatform.goToForum();

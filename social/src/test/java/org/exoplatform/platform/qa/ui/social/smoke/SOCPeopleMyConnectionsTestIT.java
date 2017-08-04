@@ -67,16 +67,16 @@ public class SOCPeopleMyConnectionsTestIT extends Base {
 
     info("Test 6: Check request pending after inviting an user");
     /*
-     * Step Number: 1 Step Name: Step 1: Go to My Connection page Step
-     * Description: - Login as User1 - Go to My Connections page, Everyone tab.
-     * Input Data: Expected Outcome: - Show content of Connections page
+     * Step Number: 1 Step Name: Step 1: Go to My Connection page Step Description:
+     * - Login as User1 - Go to My Connections page, Everyone tab. Input Data:
+     * Expected Outcome: - Show content of Connections page
      */
 
     /*
-     * Step number: 2 Step Name: Step 2: Invite user Step Description: - Select
-     * user User2 who has no connection with User1. - Click on [Connect] button
-     * Input Data: Expected Outcome: - Invitation is sent to User2 successfully.
-     * - User2 is listed in Request Pending list
+     * Step number: 2 Step Name: Step 2: Invite user Step Description: - Select user
+     * User2 who has no connection with User1. - Click on [Connect] button Input
+     * Data: Expected Outcome: - Invitation is sent to User2 successfully. - User2
+     * is listed in Request Pending list
      */
     info("Click on Connections on the left panel");
     homePagePlatform.goToConnections();
@@ -87,12 +87,12 @@ public class SOCPeopleMyConnectionsTestIT extends Base {
     $(byText("Cancel Request")).waitUntil(Condition.appears, Configuration.timeout);
     info("Test 1: Accept the invitation");
     /*
-     * Step number: 3 Step Name: Step 3: Ignore a request Step Description: -
-     * Login as User2 - Go to My Connections page, Select Requests Received tab
-     * - Click on button [Confirm] Input Data: Expected Outcome: - User1 is
-     * listed in Requests Received list of User2. - There are [Confirm] and
-     * [Ignore] - After clicking on [Confirm] button, User1 will be removed from
-     * Requests Received tab of User2.
+     * Step number: 3 Step Name: Step 3: Ignore a request Step Description: - Login
+     * as User2 - Go to My Connections page, Select Requests Received tab - Click on
+     * button [Confirm] Input Data: Expected Outcome: - User1 is listed in Requests
+     * Received list of User2. - There are [Confirm] and [Ignore] - After clicking
+     * on [Confirm] button, User1 will be removed from Requests Received tab of
+     * User2.
      */
     manageLogInOut.signIn(username2, password);
     homePagePlatform.goToConnections();
@@ -128,16 +128,16 @@ public class SOCPeopleMyConnectionsTestIT extends Base {
 
     info("Test 6: Check request pending after inviting an user");
     /*
-     * Step Number: 1 Step Name: Step 1: Go to My Connection page Step
-     * Description: - Login as User1 - Go to My Connections page, Everyone tab.
-     * Input Data: Expected Outcome: - Show content of Connections page
+     * Step Number: 1 Step Name: Step 1: Go to My Connection page Step Description:
+     * - Login as User1 - Go to My Connections page, Everyone tab. Input Data:
+     * Expected Outcome: - Show content of Connections page
      */
 
     /*
-     * Step number: 2 Step Name: Step 2: Invite user Step Description: - Select
-     * user User2 who has no connection with User1. - Click on [Connect] button
-     * Input Data: Expected Outcome: - Invitation is sent to User2 successfully.
-     * - User2 is listed in Request Pending list
+     * Step number: 2 Step Name: Step 2: Invite user Step Description: - Select user
+     * User2 who has no connection with User1. - Click on [Connect] button Input
+     * Data: Expected Outcome: - Invitation is sent to User2 successfully. - User2
+     * is listed in Request Pending list
      */
     info("Click on Connections on the left panel");
     homePagePlatform.goToConnections();
@@ -148,12 +148,12 @@ public class SOCPeopleMyConnectionsTestIT extends Base {
     $(byText("Cancel Request")).waitUntil(Condition.appears, Configuration.timeout);
     info("Test 1: Accept the invitation");
     /*
-     * Step number: 3 Step Name: Step 3: Ignore a request Step Description: -
-     * Login as User2 - Go to My Connections page, Select Requests Received tab
-     * - Click on button [Confirm] Input Data: Expected Outcome: - User1 is
-     * listed in Requests Received list of User2. - There are [Confirm] and
-     * [Ignore] - After clicking on [Confirm] button, User1 will be removed from
-     * Requests Received tab of User2.
+     * Step number: 3 Step Name: Step 3: Ignore a request Step Description: - Login
+     * as User2 - Go to My Connections page, Select Requests Received tab - Click on
+     * button [Confirm] Input Data: Expected Outcome: - User1 is listed in Requests
+     * Received list of User2. - There are [Confirm] and [Ignore] - After clicking
+     * on [Confirm] button, User1 will be removed from Requests Received tab of
+     * User2.
      */
     manageLogInOut.signIn(username2, password);
     homePagePlatform.goToConnections();
@@ -190,15 +190,15 @@ public class SOCPeopleMyConnectionsTestIT extends Base {
     manageLogInOut.signIn(username1, password);
 
     /*
-     * Step Number: 1 Step Name: Step 1: Go to Connections page Step
-     * Description: - Login as User1 - Go to Connections page Input Data:
-     * Expected Outcome: Connections page is shown
+     * Step Number: 1 Step Name: Step 1: Go to Connections page Step Description: -
+     * Login as User1 - Go to Connections page Input Data: Expected Outcome:
+     * Connections page is shown
      */
 
     /*
      * Step number: 2 Step Name: Step 2: Invite User2 Step Description: - In
-     * Everyone tab - Click on [Connect] button to connect with User2 Input
-     * Data: Expected Outcome: - Invitation is sent to User2
+     * Everyone tab - Click on [Connect] button to connect with User2 Input Data:
+     * Expected Outcome: - Invitation is sent to User2
      */
     info("Click on Connections on the left panel");
     homePagePlatform.goToConnections();
@@ -210,8 +210,8 @@ public class SOCPeopleMyConnectionsTestIT extends Base {
     /*
      * Step number: 3 Step Name: Step 3: Cancel Request Step Description: - In
      * Pending Request tab, click [Cancel Request] button Input Data: Expected
-     * Outcome: - The request is cancelled, [Cancel Request] button is changed
-     * to [Connect] button
+     * Outcome: - The request is cancelled, [Cancel Request] button is changed to
+     * [Connect] button
      */
     connectionsManagement.cancelConnection(username2);
     manageLogInOut.signIn("root", "gtn");

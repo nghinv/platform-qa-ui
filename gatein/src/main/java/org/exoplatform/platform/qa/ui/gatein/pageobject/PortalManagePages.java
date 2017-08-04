@@ -9,7 +9,10 @@ import static org.exoplatform.platform.qa.ui.selenium.logger.Logger.info;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 
-import org.exoplatform.platform.qa.ui.selenium.*;
+import org.exoplatform.platform.qa.ui.selenium.Button;
+import org.exoplatform.platform.qa.ui.selenium.Dialog;
+import org.exoplatform.platform.qa.ui.selenium.ManageAlert;
+import org.exoplatform.platform.qa.ui.selenium.TestBase;
 import org.exoplatform.platform.qa.ui.selenium.testbase.ElementEventTestBase;
 
 /**
@@ -54,7 +57,7 @@ public class PortalManagePages {
       info("Select a type");
       $(ELEMENT_MANAGEPAGES_TYPE_DROPBOX).selectOption(type);
     }
-   $(ELEMENT_MANAGEPAGES_TITLE_FIELD).waitUntil(Condition.appears,Configuration.timeout);
+    $(ELEMENT_MANAGEPAGES_TITLE_FIELD).waitUntil(Condition.appears, Configuration.timeout);
     info("Input a new title");
     $(ELEMENT_MANAGEPAGES_TITLE_FIELD).scrollTo().setValue(title);
     info("Select a type");
@@ -77,7 +80,7 @@ public class PortalManagePages {
     searchPage(titlePage, "", type);
     $(ELEMENT_MAGEPAGES_CONTENT_ACTION_COLUMN_DELETE).click();
     alert.acceptAlert();
-    if ($(byText("No result found.")).waitUntil(Condition.appears,Configuration.timeout).is(Condition.exist)){
+    if ($(byText("No result found.")).waitUntil(Condition.appears, Configuration.timeout).is(Condition.exist)) {
       $(byText("OK")).click();
     }
 

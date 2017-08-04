@@ -52,14 +52,14 @@ public class EcmsAdminTemplatesTestIT extends Base {
     String title = "title" + getRandomNumber();
     String permission = "any";
     /*
-     * Step Number: 1 Step Name: - Step Description: Step 1: AddTemplate Input
-     * Data: Create new template when put valid value in fields - Go to Content
-     * Administration/ Templates/ Documents - Click Add Template button - Put
-     * value in required fields - Click Save button Expected Outcome: - Form to
-     * manage template is shown with: + 3 tabs are added to categorize templates
-     * by their nature : Documents, Actions and Others - Template list is
-     * displayed with 4 columns: Icon, Template, Type, Actions - A new template
-     * is created successfully
+     * Step Number: 1 Step Name: - Step Description: Step 1: AddTemplate Input Data:
+     * Create new template when put valid value in fields - Go to Content
+     * Administration/ Templates/ Documents - Click Add Template button - Put value
+     * in required fields - Click Save button Expected Outcome: - Form to manage
+     * template is shown with: + 3 tabs are added to categorize templates by their
+     * nature : Documents, Actions and Others - Template list is displayed with 4
+     * columns: Icon, Template, Type, Actions - A new template is created
+     * successfully
      */
     navigationToolbar.goToContentAdministration();
     contentAdministration.goToSpecificFunctions(ContentAdministration.specificEcmFunctions.DOCUMENTS);
@@ -79,14 +79,14 @@ public class EcmsAdminTemplatesTestIT extends Base {
     String permission = "any";
     String newTitle = "newTitle" + getRandomNumber();
     /*
-     * Step Number: 1 Step Name: - Step Description: Step 1: AddTemplate Input
-     * Data: Create new template when put valid value in fields - Go to Content
-     * Administration/ Templates/ Documents - Click Add Template button - Put
-     * value in required fields - Click Save button Expected Outcome: - Form to
-     * manage template is shown with: + 3 tabs are added to categorize templates
-     * by their nature : Documents, Actions and Others - Template list is
-     * displayed with 4 columns: Icon, Template, Type, Actions - A new template
-     * is created successfully
+     * Step Number: 1 Step Name: - Step Description: Step 1: AddTemplate Input Data:
+     * Create new template when put valid value in fields - Go to Content
+     * Administration/ Templates/ Documents - Click Add Template button - Put value
+     * in required fields - Click Save button Expected Outcome: - Form to manage
+     * template is shown with: + 3 tabs are added to categorize templates by their
+     * nature : Documents, Actions and Others - Template list is displayed with 4
+     * columns: Icon, Template, Type, Actions - A new template is created
+     * successfully
      */
     navigationToolbar.goToContentAdministration();
     contentAdministration.goToSpecificFunctions(ContentAdministration.specificEcmFunctions.DOCUMENTS);
@@ -106,14 +106,14 @@ public class EcmsAdminTemplatesTestIT extends Base {
     String title = "title" + getRandomNumber();
     String permission = "any";
     /*
-     * Step Number: 1 Step Name: - Step Description: Step 1: AddTemplate Input
-     * Data: Create new template when put valid value in fields - Go to Content
-     * Administration/ Templates/ Documents - Click Add Template button - Put
-     * value in required fields - Click Save button Expected Outcome: - Form to
-     * manage template is shown with: + 3 tabs are added to categorize templates
-     * by their nature : Documents, Actions and Others - Template list is
-     * displayed with 4 columns: Icon, Template, Type, Actions - A new template
-     * is created successfully
+     * Step Number: 1 Step Name: - Step Description: Step 1: AddTemplate Input Data:
+     * Create new template when put valid value in fields - Go to Content
+     * Administration/ Templates/ Documents - Click Add Template button - Put value
+     * in required fields - Click Save button Expected Outcome: - Form to manage
+     * template is shown with: + 3 tabs are added to categorize templates by their
+     * nature : Documents, Actions and Others - Template list is displayed with 4
+     * columns: Icon, Template, Type, Actions - A new template is created
+     * successfully
      */
     navigationToolbar.goToContentAdministration();
     contentAdministration.goToSpecificFunctions(ContentAdministration.specificEcmFunctions.DOCUMENTS);

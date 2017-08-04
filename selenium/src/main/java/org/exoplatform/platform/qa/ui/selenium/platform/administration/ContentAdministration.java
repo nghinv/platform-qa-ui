@@ -975,8 +975,7 @@ public class ContentAdministration {
   /**
    * Add more actions for a View type By QuynhPT date 09/01/2015
    * 
-   * @param nameView the name of View type as: Web, Admin, Icon, List,
-   *          Categories
+   * @param nameView the name of View type as: Web, Admin, Icon, List, Categories
    * @param applyActions the name of actions that list in the popup
    */
   public void addActionsForAView(String nameView, specificEcmActionstypes action) {

@@ -48,7 +48,7 @@ public class ForumTopicTestIT extends Base {
    * <li>Test Case Name: Create new Topic.</li>
    * <li>Pre-Condition:</li>
    * <li>Post-Condition:</li> *
-  */
+   */
   @Test
   public void test09_CreateeNewTopic() {
     info("Test 9: Create new Topic");
@@ -95,7 +95,7 @@ public class ForumTopicTestIT extends Base {
    * <li>Test Case Name: Create new Topic.</li>
    * <li>Pre-Condition:</li>
    * <li>Post-Condition:</li> *
-  */
+   */
   @Test
   public void test10_DeleteNewTopic() {
     info("Test 9: Create new Topic");
